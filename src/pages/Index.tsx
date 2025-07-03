@@ -1,12 +1,54 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { TrendingUp, Shield, Users, DollarSign, Star, Clock, CheckCircle, Wallet } from "lucide-react";
+import { TrendingUp, Shield, Users, DollarSign, Star, Clock, CheckCircle, Wallet, Globe } from "lucide-react";
 import { useWeb3Auth } from "@/hooks/useWeb3Auth";
+import { useState } from "react";
 
 const Index = () => {
   const { isConnected, connectWallet, address } = useWeb3Auth();
+  const [language, setLanguage] = useState('en');
+
+  const translations = {
+    en: {
+      connectWallet: 'Connect Wallet',
+      connected: 'Connected ✓',
+      title: 'PeopleFi',
+      subtitle: 'Invest in People\'s Potential. Support the next generation of innovators, creators, and entrepreneurs.',
+      startInvesting: 'Start Investing',
+      applyFunding: 'Apply for Funding',
+      safetyTitle: 'How Your Investment is Protected and Returns Work',
+      safetyFeatures: 'Safety Mechanisms:',
+      returnsTitle: 'How You Receive Returns:',
+      featuredTitle: 'Featured Investment Opportunities',
+      safetyBuiltTitle: 'Built for Safety and Transparency',
+      readyTitle: 'Ready to Invest in the Future?',
+      readySubtitle: 'Join thousands of investors supporting the next generation of innovators. Start with just $100.',
+      viewInvestments: 'View Investments',
+      learnMore: 'Learn More'
+    },
+    pt: {
+      connectWallet: 'Conectar Carteira',
+      connected: 'Conectado ✓',
+      title: 'PeopleFi',
+      subtitle: 'Invista no potencial das pessoas. Apoie a próxima geração de inovadores, criadores e empreendedores.',
+      startInvesting: 'Começar a Investir',
+      applyFunding: 'Candidatar-se para Financiamento',
+      safetyTitle: 'Como Seu Investimento é Protegido e Como Funcionam os Retornos',
+      safetyFeatures: 'Mecanismos de Segurança:',
+      returnsTitle: 'Como Você Recebe Retornos:',
+      featuredTitle: 'Oportunidades de Investimento em Destaque',
+      safetyBuiltTitle: 'Construído para Segurança e Transparência',
+      readyTitle: 'Pronto para Investir no Futuro?',
+      readySubtitle: 'Junte-se a milhares de investidores apoiando a próxima geração de inovadores. Comece com apenas $100.',
+      viewInvestments: 'Ver Investimentos',
+      learnMore: 'Saber Mais'
+    }
+  };
+
+  const t = translations[language as keyof typeof translations];
 
   const featuredPeople = [
     {
@@ -78,7 +120,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
-      {/* Header with Wallet Connection */}
+      {/* Header with Wallet Connection and Language Selector */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Button 
@@ -86,14 +128,28 @@ const Index = () => {
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
           >
             <Wallet className="h-4 w-4 mr-2" />
-            {isConnected ? `${address?.slice(0, 6)}...${address?.slice(-4)}` : 'Conectar Carteira'}
+            {isConnected ? `${address?.slice(0, 6)}...${address?.slice(-4)}` : t.connectWallet}
           </Button>
           
-          {isConnected && (
-            <Badge className="bg-green-600/50 text-green-200">
-              Conectado ✓
-            </Badge>
-          )}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <Globe className="h-4 w-4 text-white" />
+              <select 
+                value={language} 
+                onChange={(e) => setLanguage(e.target.value)}
+                className="bg-white/10 text-white border border-white/20 rounded px-2 py-1 text-sm"
+              >
+                <option value="en">English</option>
+                <option value="pt">Português</option>
+              </select>
+            </div>
+            
+            {isConnected && (
+              <Badge className="bg-green-600/50 text-green-200">
+                {t.connected}
+              </Badge>
+            )}
+          </div>
         </div>
       </div>
 
@@ -101,10 +157,10 @@ const Index = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-16">
           <h1 className="text-6xl font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            PeopleFi
+            {t.title}
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Invista no potencial das pessoas. Apoie a próxima geração de inovadores, criadores e empreendedores.
+            {t.subtitle}
           </p>
           <div className="flex gap-4 justify-center">
             <Button 
@@ -112,7 +168,7 @@ const Index = () => {
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
               onClick={() => window.location.href = '/investments'}
             >
-              Começar a Investir
+              {t.startInvesting}
             </Button>
             <Button 
               size="lg" 
@@ -120,7 +176,7 @@ const Index = () => {
               className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white"
               onClick={() => window.location.href = '/profile/apply'}
             >
-              Candidatar-se para Financiamento
+              {t.applyFunding}
             </Button>
           </div>
         </div>
@@ -130,42 +186,42 @@ const Index = () => {
           <CardHeader>
             <CardTitle className="text-white text-2xl flex items-center gap-2">
               <Shield className="h-6 w-6 text-green-400" />
-              Como Seu Investimento é Protegido e Como Funcionam as Retornos
+              {t.safetyTitle}
             </CardTitle>
           </CardHeader>
           <CardContent className="text-gray-200">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-purple-300">Mecanismos de Segurança:</h3>
+                <h3 className="text-lg font-semibold mb-4 text-purple-300">{t.safetyFeatures}</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Smart Contract Escrow:</strong> Seus fundos estão preservados em escrow blockchain e liberados apenas quando os objetivos específicos forem alcançados</span>
+                    <span><strong>Smart Contract Escrow:</strong> Your funds are secured in blockchain escrow and released only when specific milestones are achieved</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Verificação de Milestones:</strong> A comunidade vota se os objetivos foram alcançados antes da liberação dos fundos</span>
+                    <span><strong>Milestone Verification:</strong> Community votes on whether goals are met before fund release</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Sistema de Reputação:</strong> Apenas indivíduos verificados com histórico de sucesso podem solicitar financiamento</span>
+                    <span><strong>Reputation System:</strong> Only verified individuals with proven track records can request funding</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-purple-300">Como Você Recebe Retornos:</h3>
+                <h3 className="text-lg font-semibold mb-4 text-purple-300">{t.returnsTitle}</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <DollarSign className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Compartilhamento de Receita:</strong> Receba uma porcentagem de seus futuros rendimentos por um período determinado</span>
+                    <span><strong>Revenue Sharing:</strong> Receive a percentage of their future earnings for a set period</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <DollarSign className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Tokens de Ação Tokenizados:</strong> Receba tokens de ação tokenizados que podem crescer e ser negociados</span>
+                    <span><strong>Tokenized Equity:</strong> Receive tokenized equity shares that can appreciate and be traded</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <DollarSign className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0" />
-                    <span><strong>Bônus de Sucesso:</strong> Retornos extras quando eles alcançam os principais objetivos (IPO, aquisição, etc.)</span>
+                    <span><strong>Success Bonuses:</strong> Extra returns when they hit major milestones (IPO, acquisition, etc.)</span>
                   </li>
                 </ul>
               </div>
@@ -175,7 +231,7 @@ const Index = () => {
 
         {/* Featured Investment Opportunities */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">Oportunidades de Investimento em Destaque</h2>
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">{t.featuredTitle}</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {featuredPeople.map((person) => (
               <Card key={person.id} className="bg-white/10 backdrop-blur-lg border-white/20 hover:bg-white/15 transition-all duration-300">
@@ -196,7 +252,7 @@ const Index = () => {
                 <CardContent className="space-y-4">
                   <div>
                     <div className="flex justify-between text-sm text-gray-300 mb-2">
-                      <span>Progresso</span>
+                      <span>Progress</span>
                       <span>${person.raised.toLocaleString()} / ${person.goal.toLocaleString()}</span>
                     </div>
                     <Progress value={(person.raised / person.goal) * 100} className="h-2" />
@@ -218,17 +274,17 @@ const Index = () => {
 
                   <div className="bg-black/20 rounded-lg p-3 space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-300 text-sm">Retorno Esperado:</span>
+                      <span className="text-gray-300 text-sm">Expected Return:</span>
                       <span className="text-green-400 font-semibold">{person.estimatedReturn}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-300 text-sm">Tempo de Execução:</span>
+                      <span className="text-gray-300 text-sm">Timeframe:</span>
                       <span className="text-blue-400">{person.timeframe}</span>
                     </div>
                   </div>
 
                   <div>
-                    <div className="text-sm text-gray-300 mb-2">Próximos Objetivos:</div>
+                    <div className="text-sm text-gray-300 mb-2">Next Milestones:</div>
                     <div className="space-y-1">
                       {person.milestones.slice(0, 2).map((milestone, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-xs text-gray-400">
@@ -243,7 +299,7 @@ const Index = () => {
                     className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                     onClick={() => window.location.href = `/invest/${person.id}`}
                   >
-                    Investir Agora
+                    Invest Now
                   </Button>
                 </CardContent>
               </Card>
@@ -257,14 +313,14 @@ const Index = () => {
               className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white"
               onClick={() => window.location.href = '/investments'}
             >
-              Ver Todas as Oportunidades
+              View All Opportunities
             </Button>
           </div>
         </div>
 
         {/* Safety Features Grid */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">Construído para Segurança e Transparência</h2>
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">{t.safetyBuiltTitle}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {safetyFeatures.map((feature, idx) => (
               <Card key={idx} className="bg-white/10 backdrop-blur-lg border-white/20 text-center">
@@ -283,9 +339,9 @@ const Index = () => {
         {/* CTA Section */}
         <Card className="bg-gradient-to-r from-purple-800/50 to-pink-800/50 backdrop-blur-lg border-white/20">
           <CardContent className="text-center py-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Pronto para Investir no Futuro?</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">{t.readyTitle}</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Junte-se a milhares de investidores apoiando a próxima geração de inovadores. Comece com apenas $100.
+              {t.readySubtitle}
             </p>
             <div className="flex gap-4 justify-center">
               <Button 
@@ -293,7 +349,7 @@ const Index = () => {
                 className="bg-white text-purple-900 hover:bg-gray-100"
                 onClick={() => window.location.href = '/investments'}
               >
-                Ver Investimentos
+                {t.viewInvestments}
               </Button>
               <Button 
                 size="lg" 
@@ -301,7 +357,7 @@ const Index = () => {
                 className="border-white text-white hover:bg-white hover:text-purple-900"
                 onClick={() => window.location.href = '/dashboard'}
               >
-                Saber Mais
+                {t.learnMore}
               </Button>
             </div>
           </CardContent>
