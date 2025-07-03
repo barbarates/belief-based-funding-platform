@@ -2,14 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { TrendingUp, Shield, Users, DollarSign, Star, Clock, CheckCircle } from "lucide-react";
+import { TrendingUp, Shield, Users, DollarSign, Star, Clock, CheckCircle, Wallet } from "lucide-react";
+import { useWeb3Auth } from "@/hooks/useWeb3Auth";
 
 const Index = () => {
+  const { isConnected, connectWallet, address } = useWeb3Auth();
+
   const featuredPeople = [
     {
       id: 1,
       name: "Alex Chen",
-      category: "AI Startup Founder",
+      category: "AI Startup Founder", 
       description: "Building next-gen AI tools for developers",
       raised: 45000,
       goal: 100000,
@@ -63,7 +66,7 @@ const Index = () => {
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Community Verification",
+      title: "Community Verification", 
       description: "Peer review and verification of progress by other investors"
     },
     {
@@ -75,8 +78,27 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+      {/* Header with Wallet Connection */}
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex justify-between items-center">
+          <Button 
+            onClick={isConnected ? () => window.location.href = '/dashboard' : connectWallet}
+            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+          >
+            <Wallet className="h-4 w-4 mr-2" />
+            {isConnected ? `${address?.slice(0, 6)}...${address?.slice(-4)}` : 'Conectar Carteira'}
+          </Button>
+          
+          {isConnected && (
+            <Badge className="bg-green-600/50 text-green-200">
+              Conectado ✓
+            </Badge>
+          )}
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-16">
           <h1 className="text-6xl font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             PeopleFi
@@ -271,7 +293,7 @@ const Index = () => {
                 className="bg-white text-purple-900 hover:bg-gray-100"
                 onClick={() => window.location.href = '/investments'}
               >
-                Conectar Carteira
+                Ver Investimentos
               </Button>
               <Button 
                 size="lg" 
