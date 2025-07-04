@@ -189,7 +189,7 @@ const Index = () => {
                 onClick={() => window.location.href = '/profile/apply'}
               >
                 <Award className="h-5 w-5 mr-2" />
-                {t('applyFunding')}
+                {t('apply_funding')}
               </Button>
             </div>
 
@@ -243,7 +243,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Investments */}
+      {/* Featured Investments - IMPROVED LAYOUT */}
       <section id="opportunities" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -257,95 +257,107 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8">
+          {/* Compact Investment Cards */}
+          <div className="space-y-6">
             {featuredPeople.map((person) => (
-              <Card key={person.id} className="group bg-slate-800/30 backdrop-blur-sm border-slate-700/50 hover:border-slate-600 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500">
-                <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="relative">
-                        <span className="text-4xl">{person.image}</span>
-                        {person.verified && (
-                          <div className="absolute -bottom-1 -right-1 bg-blue-500 rounded-full p-1">
-                            <CheckCircle className="h-3 w-3 text-white" />
-                          </div>
-                        )}
+              <Card key={person.id} className="group bg-slate-800/30 backdrop-blur-sm border-slate-700/50 hover:border-slate-600 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="flex flex-col lg:flex-row gap-8">
+                    {/* Left: Profile Info */}
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="relative">
+                          <span className="text-5xl">{person.image}</span>
+                          {person.verified && (
+                            <div className="absolute -bottom-1 -right-1 bg-blue-500 rounded-full p-1">
+                              <CheckCircle className="h-4 w-4 text-white" />
+                            </div>
+                          )}
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-white">{person.name}</h3>
+                          <Badge variant="secondary" className="bg-purple-600/30 text-purple-300">
+                            {person.category}
+                          </Badge>
+                          <Badge className="bg-green-500/20 text-green-400 ml-2">
+                            {person.growth}
+                          </Badge>
+                        </div>
                       </div>
-                      <div>
-                        <CardTitle className="text-white text-lg">{person.name}</CardTitle>
-                        <Badge variant="secondary" className="bg-purple-600/30 text-purple-300 text-xs">
-                          {person.category}
-                        </Badge>
-                      </div>
+                      <p className="text-gray-300 mb-4 max-w-md">{person.description}</p>
                     </div>
-                    <Badge className="bg-green-500/20 text-green-400 text-xs">
-                      {person.growth}
-                    </Badge>
-                  </div>
-                  <CardDescription className="text-gray-300 leading-relaxed">
-                    {person.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">{t('progress')}</span>
-                      <span className="text-white font-medium">
-                        ${person.raised.toLocaleString()} / ${person.goal.toLocaleString()}
-                      </span>
-                    </div>
-                    <Progress value={(person.raised / person.goal) * 100} className="h-2" />
-                  </div>
-                  
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-purple-300 font-bold text-lg">{person.backers}</div>
-                      <div className="text-gray-500 text-xs">{t('backers')}</div>
-                    </div>
-                    <div>
-                      <div className="text-yellow-400 font-bold text-lg flex items-center justify-center gap-1">
-                        <Star className="h-4 w-4" />
-                        {person.rating}
-                      </div>
-                      <div className="text-gray-500 text-xs">{t('rating')}</div>
-                    </div>
-                    <div>
-                      <div className="text-green-400 font-bold text-lg">{person.estimatedReturn}</div>
-                      <div className="text-gray-500 text-xs">{t('expected_return')}</div>
-                    </div>
-                  </div>
 
-                  <div className="bg-slate-900/50 rounded-xl p-4 space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-400 text-sm flex items-center gap-2">
-                        <Clock className="h-4 w-4" />
-                        {t('timeframe')}:
-                      </span>
-                      <span className="text-blue-400 font-medium">{person.timeframe}</span>
-                    </div>
-                    
-                    <div>
-                      <div className="text-gray-400 text-sm mb-2">{t('next_milestones')}:</div>
-                      <div className="space-y-1">
-                        {person.milestones.slice(0, 2).map((milestone, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-xs text-gray-300">
-                            <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
-                            {milestone}
+                    {/* Center: Progress & Stats */}
+                    <div className="flex-grow">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {/* Progress Bar */}
+                        <div className="space-y-3">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-400">{t('progress')}</span>
+                            <span className="text-white font-medium">
+                              ${person.raised.toLocaleString()} / ${person.goal.toLocaleString()}
+                            </span>
                           </div>
-                        ))}
+                          <Progress value={(person.raised / person.goal) * 100} className="h-3" />
+                          
+                          {/* Quick Stats */}
+                          <div className="grid grid-cols-3 gap-4 mt-4">
+                            <div className="text-center">
+                              <div className="text-purple-300 font-bold text-lg">{person.backers}</div>
+                              <div className="text-gray-500 text-xs">{t('backers')}</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-yellow-400 font-bold text-lg flex items-center justify-center gap-1">
+                                <Star className="h-4 w-4" />
+                                {person.rating}
+                              </div>
+                              <div className="text-gray-500 text-xs">{t('rating')}</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-green-400 font-bold text-lg">{person.estimatedReturn}</div>
+                              <div className="text-gray-500 text-xs">{t('expected_return')}</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Milestones & Timeline */}
+                        <div className="bg-slate-900/50 rounded-xl p-4">
+                          <div className="flex justify-between items-center mb-3">
+                            <span className="text-gray-400 text-sm flex items-center gap-2">
+                              <Clock className="h-4 w-4" />
+                              {t('timeframe')}:
+                            </span>
+                            <span className="text-blue-400 font-medium">{person.timeframe}</span>
+                          </div>
+                          
+                          <div>
+                            <div className="text-gray-400 text-sm mb-2">{t('next_milestones')}:</div>
+                            <div className="space-y-1">
+                              {person.milestones.slice(0, 3).map((milestone, idx) => (
+                                <div key={idx} className="flex items-center gap-2 text-xs text-gray-300">
+                                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
+                                  {milestone}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <Button 
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 group-hover:shadow-lg group-hover:shadow-purple-500/25 transition-all duration-300"
-                    onClick={() => window.location.href = `/invest/${person.id}`}
-                  >
-                    <DollarSign className="h-4 w-4 mr-2" />
-                    {t('invest_now')}
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                    {/* Right: Action Button */}
+                    <div className="flex-shrink-0 flex items-center">
+                      <Button 
+                        size="lg"
+                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 group-hover:shadow-lg group-hover:shadow-purple-500/25 transition-all duration-300 px-8"
+                        onClick={() => window.location.href = `/invest/${person.id}`}
+                      >
+                        <DollarSign className="h-5 w-5 mr-2" />
+                        {t('invest_now')}
+                        <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
