@@ -9,7 +9,202 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      campaign_milestones: {
+        Row: {
+          campaign_id: string
+          created_at: string
+          deadline: string | null
+          description: string | null
+          id: string
+          order_index: number | null
+          status: string | null
+          target_amount: number | null
+          title: string
+        }
+        Insert: {
+          campaign_id: string
+          created_at?: string
+          deadline?: string | null
+          description?: string | null
+          id?: string
+          order_index?: number | null
+          status?: string | null
+          target_amount?: number | null
+          title: string
+        }
+        Update: {
+          campaign_id?: string
+          created_at?: string
+          deadline?: string | null
+          description?: string | null
+          id?: string
+          order_index?: number | null
+          status?: string | null
+          target_amount?: number | null
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "campaign_milestones_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "investment_campaigns"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      investment_campaigns: {
+        Row: {
+          category: string | null
+          created_at: string
+          creator_id: string
+          description: string | null
+          estimated_return_max: number | null
+          estimated_return_min: number | null
+          goal_amount: number
+          id: string
+          image_url: string | null
+          raised_amount: number | null
+          status: string | null
+          timeframe: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          creator_id: string
+          description?: string | null
+          estimated_return_max?: number | null
+          estimated_return_min?: number | null
+          goal_amount: number
+          id?: string
+          image_url?: string | null
+          raised_amount?: number | null
+          status?: string | null
+          timeframe?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          creator_id?: string
+          description?: string | null
+          estimated_return_max?: number | null
+          estimated_return_min?: number | null
+          goal_amount?: number
+          id?: string
+          image_url?: string | null
+          raised_amount?: number | null
+          status?: string | null
+          timeframe?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "investment_campaigns_creator_id_fkey"
+            columns: ["creator_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      investments: {
+        Row: {
+          amount: number
+          campaign_id: string
+          created_at: string
+          id: string
+          investor_id: string
+          status: string | null
+          transaction_hash: string | null
+          wallet_address: string | null
+        }
+        Insert: {
+          amount: number
+          campaign_id: string
+          created_at?: string
+          id?: string
+          investor_id: string
+          status?: string | null
+          transaction_hash?: string | null
+          wallet_address?: string | null
+        }
+        Update: {
+          amount?: number
+          campaign_id?: string
+          created_at?: string
+          id?: string
+          investor_id?: string
+          status?: string | null
+          transaction_hash?: string | null
+          wallet_address?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "investments_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "investment_campaigns"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "investments_investor_id_fkey"
+            columns: ["investor_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          category: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          linkedin_url: string | null
+          twitter_handle: string | null
+          updated_at: string
+          username: string | null
+          verified: boolean | null
+          website: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          category?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+          linkedin_url?: string | null
+          twitter_handle?: string | null
+          updated_at?: string
+          username?: string | null
+          verified?: boolean | null
+          website?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          category?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          linkedin_url?: string | null
+          twitter_handle?: string | null
+          updated_at?: string
+          username?: string | null
+          verified?: boolean | null
+          website?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

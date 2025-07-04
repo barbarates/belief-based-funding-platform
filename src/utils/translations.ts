@@ -68,7 +68,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
   en: {
     title: 'PeopleFi',
     subtitle: 'Invest in extraordinary people and their revolutionary ideas. Backed by blockchain technology for complete transparency and security.',
-    hero_title: 'Invest in People, Not Just Ideas',
+    hero_title: 'Invest in Extraordinary People',
     startInvesting: 'Start Investing',
     applyFunding: 'Apply for Funding',
     apply_funding: 'Apply for Funding',
@@ -131,7 +131,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
   pt: {
     title: 'PeopleFi',
     subtitle: 'Invista em pessoas extraordinárias e suas ideias revolucionárias. Protegido por tecnologia blockchain para total transparência e segurança.',
-    hero_title: 'Invista em Pessoas, Não Apenas Ideias',
+    hero_title: 'Invista em Pessoas Extraordinárias',
     startInvesting: 'Começar a Investir',
     applyFunding: 'Solicitar Financiamento',
     apply_funding: 'Solicitar Financiamento',
@@ -194,7 +194,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
   es: {
     title: 'PeopleFi',
     subtitle: 'Invierte en personas extraordinarias y sus ideas revolucionarias. respaldado por tecnología blockchain para total transparencia y seguridad.',
-    hero_title: 'Invierte en Personas, No Solo Ideas',
+    hero_title: 'Invierte en Personas Extraordinarias',
     startInvesting: 'Comenzar a Invertir',
     applyFunding: 'Solicitar Financiamiento',
     apply_funding: 'Solicitar Financiamiento',
