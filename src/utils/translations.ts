@@ -1,4 +1,3 @@
-
 export type Language = 'en' | 'pt' | 'es';
 
 export type TranslationKey = 
@@ -67,8 +66,8 @@ export type TranslationKey =
 export const translations: Record<Language, Record<TranslationKey, string>> = {
   en: {
     title: 'PeopleFi',
-    subtitle: 'Invest in extraordinary people and their revolutionary ideas. Backed by blockchain technology for complete transparency and security.',
-    hero_title: 'Invest in Extraordinary People',
+    subtitle: 'Where talent meets capital. Connect with innovators and back the next generation of game-changers through smart investments.',
+    hero_title: 'Where Talent Meets Capital',
     startInvesting: 'Start Investing',
     applyFunding: 'Apply for Funding',
     apply_funding: 'Apply for Funding',
@@ -130,8 +129,8 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
   },
   pt: {
     title: 'PeopleFi',
-    subtitle: 'Invista em pessoas extraordinárias e suas ideias revolucionárias. Protegido por tecnologia blockchain para total transparência e segurança.',
-    hero_title: 'Invista em Pessoas Extraordinárias',
+    subtitle: 'Onde talento encontra capital. Conecte-se com inovadores e apoie a próxima geração de revolucionários através de investimentos inteligentes.',
+    hero_title: 'Onde Talento Encontra Capital',
     startInvesting: 'Começar a Investir',
     applyFunding: 'Solicitar Financiamento',
     apply_funding: 'Solicitar Financiamento',
@@ -193,8 +192,8 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
   },
   es: {
     title: 'PeopleFi',
-    subtitle: 'Invierte en personas extraordinarias y sus ideas revolucionarias. respaldado por tecnología blockchain para total transparencia y seguridad.',
-    hero_title: 'Invierte en Personas Extraordinarias',
+    subtitle: 'Donde el talento encuentra capital. Conéctate con innovadores y respalda la próxima generación de revolucionarios a través de inversiones inteligentes.',
+    hero_title: 'Donde Talento Encuentra Capital',
     startInvesting: 'Comenzar a Invertir',
     applyFunding: 'Solicitar Financiamiento',
     apply_funding: 'Solicitar Financiamiento',
