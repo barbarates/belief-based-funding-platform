@@ -5,14 +5,17 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
+import { Alert, AlertDescription } from '@/components/ui/alert'
 import { useWeb3Auth } from '@/hooks/useWeb3Auth'
-import { ArrowLeft, DollarSign, Target, Users, Star, Calendar, CheckCircle } from 'lucide-react'
+import { useContractSecurity } from '@/hooks/useContractSecurity'
+import { ContractInterface } from '@/components/Web3/ContractInterface'
+import { ArrowLeft, DollarSign, Target, Users, Star, Calendar, CheckCircle, Shield, AlertTriangle } from 'lucide-react'
 
 const InvestmentDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const { user, isConnected } = useWeb3Auth()
-  const [investmentAmount, setInvestmentAmount] = useState('')
+  const { securityStatus, isLoading: securityLoading } = useContractSecurity(id)
 
   // Mock data - em produção viria de uma API
   const campaign = {
@@ -39,20 +42,30 @@ const InvestmentDetail = () => {
 
   const progress = (campaign.raised / campaign.goal) * 100
 
-  const handleInvest = () => {
-    if (!isConnected) {
-      alert('Conecte sua carteira primeiro!')
-      return
-    }
-    
-    if (!investmentAmount || parseFloat(investmentAmount) <= 0) {
-      alert('Digite um valor válido!')
-      return
+  const SecurityBanner = () => {
+    if (securityLoading) {
+      return <div className="text-center p-4">Verificando segurança...</div>
     }
 
-    // Aqui implementaremos a lógica do smart contract
-    console.log(`Investindo $${investmentAmount} na campanha ${id}`)
-    alert(`Investimento de $${investmentAmount} realizado com sucesso!`)
+    if (!securityStatus.isSecure) {
+      return (
+        <Alert variant="destructive" className="mb-6">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertDescription>
+            Aviso de segurança: {securityStatus.warnings.join(', ')}
+          </AlertDescription>
+        </Alert>
+      )
+    }
+
+    return (
+      <Alert className="mb-6 border-green-200 bg-green-50">
+        <Shield className="h-4 w-4 text-green-600" />
+        <AlertDescription className="text-green-800">
+          ✅ Investimento protegido por smart contracts auditados (Score: {securityStatus.securityScore}/100)
+        </AlertDescription>
+      </Alert>
+    )
   }
 
   return (
@@ -70,6 +83,9 @@ const InvestmentDetail = () => {
           </Button>
           <h1 className="text-3xl font-bold text-white">Detalhes do Investimento</h1>
         </div>
+
+        {/* Security Banner */}
+        <SecurityBanner />
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Informações principais */}
@@ -162,62 +178,12 @@ const InvestmentDetail = () => {
             </Card>
           </div>
 
-          {/* Sidebar de investimento */}
+          {/* Sidebar com Interface Web3 */}
           <div className="space-y-6">
-            {/* Card de investimento */}
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20 sticky top-8">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <DollarSign className="h-5 w-5" />
-                  Fazer Investimento
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <label className="block text-sm text-gray-300 mb-2">Valor do Investimento ($)</label>
-                  <input
-                    type="number"
-                    placeholder="Ex: 1000"
-                    value={investmentAmount}
-                    onChange={(e) => setInvestmentAmount(e.target.value)}
-                    className="w-full px-3 py-2 bg-black/20 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400"
-                  />
-                </div>
-
-                <div className="bg-black/20 rounded-lg p-3 space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Retorno Esperado:</span>
-                    <span className="text-green-400 font-semibold">{campaign.expectedReturns}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Tipo de Investimento:</span>
-                    <span className="text-blue-400">{campaign.investmentType}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Nível de Risco:</span>
-                    <span className="text-yellow-400">{campaign.riskLevel}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Prazo:</span>
-                    <span className="text-purple-400">{campaign.timeframe}</span>
-                  </div>
-                </div>
-
-                <Button 
-                  onClick={handleInvest}
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-                  disabled={!isConnected}
-                >
-                  {!isConnected ? 'Conecte sua Carteira' : 'Investir Agora'}
-                </Button>
-
-                {!isConnected && (
-                  <p className="text-sm text-yellow-300 text-center">
-                    🔒 Conecte sua carteira para investir
-                  </p>
-                )}
-              </CardContent>
-            </Card>
+            <ContractInterface 
+              campaignId={id || '1'} 
+              isCreator={false}
+            />
 
             {/* Informações adicionais */}
             <Card className="bg-white/10 backdrop-blur-lg border-white/20">

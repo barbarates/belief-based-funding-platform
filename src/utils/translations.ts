@@ -66,7 +66,7 @@ export type TranslationKey =
 export const translations: Record<Language, Record<TranslationKey, string>> = {
   en: {
     title: 'PeopleFi',
-    subtitle: 'Where talent meets capital. Connect with innovators and back the next generation of game-changers through smart investments.',
+    subtitle: 'Where talent meets capital through blockchain technology. Connect with innovators and back revolutionary ideas with complete transparency and security.',
     hero_title: 'Where Talent Meets Capital',
     startInvesting: 'Start Investing',
     applyFunding: 'Apply for Funding',
@@ -129,7 +129,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
   },
   pt: {
     title: 'PeopleFi',
-    subtitle: 'Onde talento encontra capital. Conecte-se com inovadores e apoie a próxima geração de revolucionários através de investimentos inteligentes.',
+    subtitle: 'Onde talento encontra capital através da tecnologia blockchain. Conecte-se com inovadores e apoie ideias revolucionárias com total transparência e segurança.',
     hero_title: 'Onde Talento Encontra Capital',
     startInvesting: 'Começar a Investir',
     applyFunding: 'Solicitar Financiamento',
@@ -192,7 +192,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
   },
   es: {
     title: 'PeopleFi',
-    subtitle: 'Donde el talento encuentra capital. Conéctate con innovadores y respalda la próxima generación de revolucionarios a través de inversiones inteligentes.',
+    subtitle: 'Donde el talento encuentra capital a través de la tecnología blockchain. Conéctate con innovadores y respalda ideas revolucionarias con total transparencia y seguridad.',
     hero_title: 'Donde Talento Encuentra Capital',
     startInvesting: 'Comenzar a Invertir',
     applyFunding: 'Solicitar Financiamiento',
