@@ -1,218 +1,137 @@
-
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Progress } from '@/components/ui/progress'
-import { Badge } from '@/components/ui/badge'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { useWeb3Auth } from '@/hooks/useWeb3Auth'
-import { useContractSecurity } from '@/hooks/useContractSecurity'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Progress } from "@/components/ui/progress"
+import { useProfile } from '@/hooks/useProfile'
+import { useCampaigns } from '@/hooks/useCampaigns'
 import { ContractInterface } from '@/components/Web3/ContractInterface'
-import { ArrowLeft, DollarSign, Target, Users, Star, Calendar, CheckCircle, Shield, AlertTriangle } from 'lucide-react'
+import { formatAmount } from '@/contracts/PeopleFiSmartContract'
+
+import { SecurityDashboard } from '@/components/Security/SecurityDashboard'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const InvestmentDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { user, isConnected } = useWeb3Auth()
-  const { securityStatus, isLoading: securityLoading } = useContractSecurity(id)
+  const { profile, loading: profileLoading } = useProfile()
+  const { campaigns, loading: campaignsLoading } = useCampaigns()
+  const [campaign, setCampaign] = useState(null)
 
-  // Mock data - em produção viria de uma API
-  const campaign = {
-    id: '1',
-    name: 'Alex Chen',
-    category: 'AI Startup Founder',
-    description: 'Desenvolvendo ferramentas de IA de próxima geração para desenvolvedores. Já tenho um MVP funcionando e estou buscando investimento para expandir a equipe e acelerar o desenvolvimento.',
-    goal: 100000,
-    raised: 45000,
-    backers: 156,
-    rating: 4.8,
-    timeframe: '2 anos',
-    image: '👨‍💻',
-    milestones: [
-      { title: 'Lançar MVP', description: 'Produto mínimo viável funcionando', completed: true, date: '2024-01-15' },
-      { title: 'Conseguir primeiros 1000 usuários', description: 'Base de usuários estabelecida', completed: true, date: '2024-03-20' },
-      { title: 'Fechar Série A', description: 'Investimento de R$ 2M', completed: false, date: '2024-08-15' },
-      { title: 'Começar revenue sharing', description: 'Início dos retornos para investidores', completed: false, date: '2024-12-01' }
-    ],
-    expectedReturns: '15-25% ao ano',
-    riskLevel: 'Médio',
-    investmentType: 'Revenue Sharing'
+  useEffect(() => {
+    if (id && campaigns && campaigns.length > 0) {
+      const foundCampaign = campaigns.find((campaign) => campaign.id === id)
+      setCampaign(foundCampaign)
+    }
+  }, [id, campaigns])
+
+  if (campaignsLoading || profileLoading) {
+    return <div>Carregando...</div>
   }
 
-  const progress = (campaign.raised / campaign.goal) * 100
+  if (!campaign) {
+    return <div>Campanha não encontrada</div>
+  }
 
-  const SecurityBanner = () => {
-    if (securityLoading) {
-      return <div className="text-center p-4">Verificando segurança...</div>
-    }
-
-    if (!securityStatus.isSecure) {
-      return (
-        <Alert variant="destructive" className="mb-6">
-          <AlertTriangle className="h-4 w-4" />
-          <AlertDescription>
-            Aviso de segurança: {securityStatus.warnings.join(', ')}
-          </AlertDescription>
-        </Alert>
-      )
-    }
-
-    return (
-      <Alert className="mb-6 border-green-200 bg-green-50">
-        <Shield className="h-4 w-4 text-green-600" />
-        <AlertDescription className="text-green-800">
-          ✅ Investimento protegido por smart contracts auditados (Score: {securityStatus.securityScore}/100)
-        </AlertDescription>
-      </Alert>
-    )
+  const handleBack = () => {
+    navigate('/investments')
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/investments')}
-            className="text-white hover:bg-white/10"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Voltar
-          </Button>
-          <h1 className="text-3xl font-bold text-white">Detalhes do Investimento</h1>
+    <div className="min-h-screen bg-background">
+      <header className="bg-secondary py-4">
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <Button variant="ghost" onClick={handleBack}>Voltar</Button>
+          <h1 className="text-lg font-semibold">Detalhes da Campanha</h1>
+          <div></div>
         </div>
+      </header>
 
-        {/* Security Banner */}
-        <SecurityBanner />
+      <main className="container mx-auto px-4 py-8">
+        <Card className="mb-8">
+          <CardHeader>
+            <div className="flex items-center">
+              <Avatar className="mr-4">
+                <AvatarImage src={campaign.image_url} />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <div>
+                <CardTitle>{campaign.title}</CardTitle>
+                <CardDescription>{campaign.category}</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p>{campaign.description}</p>
+            <div className="mt-4">
+              <p className="text-sm font-medium">Meta: {formatAmount(BigInt(campaign.goal_amount))}</p>
+              <Progress value={(campaign.raised_amount / campaign.goal_amount) * 100} />
+              <p className="text-sm mt-2">Arrecadado: {formatAmount(BigInt(campaign.raised_amount || 0))}</p>
+            </div>
+          </CardContent>
+        </Card>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Informações principais */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Perfil */}
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+        <Tabs defaultValue="overview" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-4">
+            <TabsTrigger value="overview">Visão Geral</TabsTrigger>
+            <TabsTrigger value="milestones">Marcos</TabsTrigger>
+            <TabsTrigger value="invest">Investir</TabsTrigger>
+            <TabsTrigger value="security">Segurança</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="overview" className="space-y-6">
+            <Card>
               <CardHeader>
-                <div className="flex items-center gap-4">
-                  <span className="text-6xl">{campaign.image}</span>
-                  <div>
-                    <CardTitle className="text-white text-2xl">{campaign.name}</CardTitle>
-                    <Badge className="bg-purple-600/50 text-purple-200 mt-2">
-                      {campaign.category}
-                    </Badge>
-                    <div className="flex items-center gap-2 mt-2">
-                      <Star className="h-4 w-4 text-yellow-400" />
-                      <span className="text-white font-semibold">{campaign.rating}</span>
-                      <span className="text-gray-300">({campaign.backers} avaliações)</span>
-                    </div>
-                  </div>
-                </div>
+                <CardTitle>Sobre a Campanha</CardTitle>
+                <CardDescription>Informações detalhadas sobre a campanha.</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-300 leading-relaxed">{campaign.description}</p>
+                <p>{campaign.description}</p>
               </CardContent>
             </Card>
+          </TabsContent>
 
-            {/* Progresso */}
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+          <TabsContent value="milestones" className="space-y-6">
+            <Card>
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <Target className="h-5 w-5" />
-                  Progresso da Campanha
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-sm text-gray-300 mb-2">
-                    <span>Arrecadado</span>
-                    <span>${campaign.raised.toLocaleString()} / ${campaign.goal.toLocaleString()}</span>
-                  </div>
-                  <Progress value={progress} className="h-3" />
-                </div>
-                
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-purple-300">${campaign.raised.toLocaleString()}</div>
-                    <div className="text-sm text-gray-400">Arrecadado</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-purple-300">{campaign.backers}</div>
-                    <div className="text-sm text-gray-400">Investidores</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-purple-300">{Math.round(progress)}%</div>
-                    <div className="text-sm text-gray-400">Completado</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Milestones */}
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <Calendar className="h-5 w-5" />
-                  Marcos do Projeto
-                </CardTitle>
+                <CardTitle>Marcos da Campanha</CardTitle>
+                <CardDescription>Acompanhe o progresso da campanha.</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  {campaign.milestones.map((milestone, index) => (
-                    <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-black/20">
-                      <div className={`mt-1 ${milestone.completed ? 'text-green-400' : 'text-gray-400'}`}>
-                        <CheckCircle className="h-5 w-5" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between">
-                          <h3 className={`font-semibold ${milestone.completed ? 'text-green-300' : 'text-white'}`}>
-                            {milestone.title}
-                          </h3>
-                          <span className="text-sm text-gray-400">{milestone.date}</span>
-                        </div>
-                        <p className="text-gray-300 text-sm mt-1">{milestone.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <p>Em breve: Lista de marcos e progresso detalhado.</p>
               </CardContent>
             </Card>
-          </div>
+          </TabsContent>
 
-          {/* Sidebar com Interface Web3 */}
-          <div className="space-y-6">
-            <ContractInterface 
-              campaignId={id || '1'} 
-              isCreator={false}
-            />
+          <TabsContent value="invest" className="space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                <ContractInterface 
+                  campaignId={id!} 
+                  isCreator={false}
+                />
+              </div>
+              <div>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Estatísticas de Investimento</CardTitle>
+                    <CardDescription>Veja como está a campanha.</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p>Investidores: 150</p>
+                    <p>Retorno Estimado: 10-15%</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </TabsContent>
 
-            {/* Informações adicionais */}
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  Investidores Recentes
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">0x1234...5678</span>
-                    <span className="text-green-400">$2,500</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">0x9876...4321</span>
-                    <span className="text-green-400">$1,000</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">0x5555...9999</span>
-                    <span className="text-green-400">$750</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
+          <TabsContent value="security" className="space-y-6">
+            <SecurityDashboard campaignId={id!} />
+          </TabsContent>
+        </Tabs>
+      </main>
     </div>
   )
 }
