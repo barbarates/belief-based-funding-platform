@@ -28,7 +28,7 @@ export const ContractInterface: React.FC<ContractInterfaceProps> = ({
   const { securityStatus, executeSecureTransaction, validateTransaction } = useContractSecurity(campaignId)
   const { isKYCApproved, needsKYC } = useKYC()
   const { settings: securitySettings, validateInvestment } = useSecuritySettings(campaignId)
-  const { recordTransaction, updateTransactionStatus } = useBlockchainTransactions(campaignId)
+  const { recordTransaction, updateTransactionStatus } = useBlockchainTransactions()
   
   const [loading, setLoading] = useState(false)
   const [investmentAmount, setInvestmentAmount] = useState('')
@@ -107,11 +107,12 @@ export const ContractInterface: React.FC<ContractInterfaceProps> = ({
       // Record transaction in backend
       await recordTransaction({
         campaign_id: campaignId,
+        investor_id: user.address,
         transaction_hash: result.transactionHash,
         transaction_type: 'investment',
         amount: parseFloat(investmentAmount),
-        gas_used: result.gasUsed,
-        block_number: result.blockNumber
+        network_id: 'solana-devnet',
+        status: 'pending'
       })
 
       // Update transaction status when confirmed

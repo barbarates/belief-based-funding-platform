@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
+import { Shield } from "lucide-react"
 import { useProfile } from '@/hooks/useProfile'
 import { useCampaigns } from '@/hooks/useCampaigns'
 import { ContractInterface } from '@/components/Web3/ContractInterface'
