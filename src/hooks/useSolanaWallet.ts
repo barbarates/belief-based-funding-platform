@@ -33,7 +33,7 @@ export const useSolanaWallet = () => {
     const checkWallet = async () => {
       if (window.solana?.isPhantom) {
         try {
-          const response = await window.solana.connect({ onlyIfTrusted: true })
+          const response = await window.solana.connect()
           setWallet(prev => ({
             ...prev,
             publicKey: response.publicKey,

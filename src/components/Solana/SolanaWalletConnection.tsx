@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { useSolanaWallet } from '@/hooks/useSolanaWallet'
-import { Wallet, WalletOff, ExternalLink, RefreshCw } from 'lucide-react'
+import { Wallet, Power, ExternalLink, RefreshCw } from 'lucide-react'
 import { toast } from 'sonner'
 
 export const SolanaWalletConnection: React.FC = () => {
@@ -127,7 +127,7 @@ export const SolanaWalletConnection: React.FC = () => {
             onClick={handleDisconnect}
             className="flex-1"
           >
-            <WalletOff className="h-4 w-4 mr-2" />
+            <Power className="h-4 w-4 mr-2" />
             Desconectar
           </Button>
           

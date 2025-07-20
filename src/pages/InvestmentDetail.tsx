@@ -9,7 +9,7 @@ import { useCampaigns } from '@/hooks/useCampaigns'
 import { ContractInterface } from '@/components/Web3/ContractInterface'
 import { formatAmount } from '@/contracts/PeopleFiSmartContract'
 
-import { SecurityDashboard } from '@/components/Security/SecurityDashboard'
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const InvestmentDetail = () => {
@@ -128,7 +128,17 @@ const InvestmentDetail = () => {
           </TabsContent>
 
           <TabsContent value="security" className="space-y-6">
-            <SecurityDashboard campaignId={id!} />
+            <Card>
+              <CardContent className="p-6">
+                <div className="text-center">
+                  <Shield className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+                  <h3 className="text-xl font-semibold mb-2">Dashboard de Segurança</h3>
+                  <p className="text-muted-foreground">
+                    Funcionalidades de segurança em desenvolvimento
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </main>

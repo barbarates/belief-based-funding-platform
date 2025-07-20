@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 import { supabase } from '@/integrations/supabase/client'
 
@@ -8,79 +7,71 @@ export interface AuditLog {
   action: string
   table_name: string
   record_id: string | null
-  old_data: any
-  new_data: any
-  ip_address: string | null
+  old_values: any
+  new_values: any
+  ip_address: any
   user_agent: string | null
   created_at: string
 }
 
-export const useAuditLogs = (userId?: string) => {
+export const useAuditLogs = () => {
   const [logs, setLogs] = useState<AuditLog[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    const fetchAuditLogs = async () => {
-      try {
-        let query = supabase
-          .from('audit_logs')
-          .select('*')
-          .order('created_at', { ascending: false })
-          .limit(100)
+  const fetchLogs = async () => {
+    setLoading(true)
+    try {
+      const { data, error } = await supabase
+        .from('audit_logs')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(50)
 
-        if (userId) {
-          query = query.eq('user_id', userId)
-        }
-
-        const { data, error } = await query
-
-        if (error) {
-          console.error('Erro ao buscar logs de auditoria:', error)
-          setError('Erro ao carregar logs de auditoria')
-          return
-        }
-
-        setLogs(data || [])
-      } catch (err) {
-        console.error('Erro geral:', err)
-        setError('Erro inesperado')
-      } finally {
-        setLoading(false)
-      }
+      if (error) throw error
+      setLogs(data as AuditLog[] || [])
+    } catch (error) {
+      console.error('Erro ao buscar logs de auditoria:', error)
+    } finally {
+      setLoading(false)
     }
+  }
 
-    fetchAuditLogs()
-  }, [userId])
-
-  const logAuditEvent = async (
+  const logAction = async (
     action: string,
     tableName: string,
     recordId?: string,
-    oldData?: any,
-    newData?: any
+    oldValues?: Record<string, any>,
+    newValues?: Record<string, any>
   ) => {
     try {
-      const { error } = await supabase.rpc('log_audit_event', {
-        p_action: action,
-        p_table_name: tableName,
-        p_record_id: recordId,
-        p_old_data: oldData,
-        p_new_data: newData
-      })
+      const { error } = await supabase
+        .from('audit_logs')
+        .insert({
+          action,
+          table_name: tableName,
+          record_id: recordId,
+          old_values: oldValues,
+          new_values: newValues,
+          ip_address: null,
+          user_agent: navigator.userAgent
+        })
 
-      if (error) {
-        console.error('Erro ao registrar evento de auditoria:', error)
-      }
-    } catch (err) {
-      console.error('Erro ao registrar auditoria:', err)
+      if (error) throw error
+      
+      await fetchLogs()
+    } catch (error) {
+      console.error('Erro ao criar log de auditoria:', error)
     }
   }
+
+  useEffect(() => {
+    fetchLogs()
+  }, [])
 
   return {
     logs,
     loading,
-    error,
-    logAuditEvent
+    fetchLogs,
+    logAction
   }
 }

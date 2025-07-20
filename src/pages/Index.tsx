@@ -122,6 +122,9 @@ const Index = () => {
                 <a href="/dashboard" className="text-gray-300 hover:text-white transition-colors">
                   {t('dashboard')}
                 </a>
+                <a href="/solana-test" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all">
+                  🚀 Testar Solana
+                </a>
               </div>
             </div>
             

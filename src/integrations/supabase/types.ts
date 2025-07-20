@@ -14,6 +14,101 @@ export type Database = {
   }
   public: {
     Tables: {
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          id: string
+          ip_address: unknown | null
+          new_values: Json | null
+          old_values: Json | null
+          record_id: string | null
+          table_name: string
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          id?: string
+          ip_address?: unknown | null
+          new_values?: Json | null
+          old_values?: Json | null
+          record_id?: string | null
+          table_name: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          id?: string
+          ip_address?: unknown | null
+          new_values?: Json | null
+          old_values?: Json | null
+          record_id?: string | null
+          table_name?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      blockchain_transactions: {
+        Row: {
+          amount: number
+          block_number: number | null
+          campaign_id: string | null
+          confirmed_at: string | null
+          created_at: string
+          gas_price: number | null
+          gas_used: number | null
+          id: string
+          investor_id: string | null
+          network_id: string
+          status: string
+          transaction_hash: string
+          transaction_type: string
+        }
+        Insert: {
+          amount: number
+          block_number?: number | null
+          campaign_id?: string | null
+          confirmed_at?: string | null
+          created_at?: string
+          gas_price?: number | null
+          gas_used?: number | null
+          id?: string
+          investor_id?: string | null
+          network_id?: string
+          status?: string
+          transaction_hash: string
+          transaction_type: string
+        }
+        Update: {
+          amount?: number
+          block_number?: number | null
+          campaign_id?: string | null
+          confirmed_at?: string | null
+          created_at?: string
+          gas_price?: number | null
+          gas_used?: number | null
+          id?: string
+          investor_id?: string | null
+          network_id?: string
+          status?: string
+          transaction_hash?: string
+          transaction_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blockchain_transactions_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "investment_campaigns"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       campaign_milestones: {
         Row: {
           campaign_id: string
@@ -165,6 +260,60 @@ export type Database = {
           },
         ]
       }
+      kyc_verifications: {
+        Row: {
+          address: string
+          city: string
+          country: string
+          created_at: string
+          date_of_birth: string
+          document_number: string
+          document_type: string
+          full_name: string
+          id: string
+          phone: string | null
+          rejected_reason: string | null
+          status: string
+          updated_at: string
+          user_id: string | null
+          verified_at: string | null
+        }
+        Insert: {
+          address: string
+          city: string
+          country: string
+          created_at?: string
+          date_of_birth: string
+          document_number: string
+          document_type: string
+          full_name: string
+          id?: string
+          phone?: string | null
+          rejected_reason?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+          verified_at?: string | null
+        }
+        Update: {
+          address?: string
+          city?: string
+          country?: string
+          created_at?: string
+          date_of_birth?: string
+          document_number?: string
+          document_type?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          rejected_reason?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+          verified_at?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -207,6 +356,45 @@ export type Database = {
           username?: string | null
           verified?: boolean | null
           website?: string | null
+        }
+        Relationships: []
+      }
+      security_settings: {
+        Row: {
+          created_at: string
+          email_notifications: boolean
+          id: string
+          login_alerts: boolean
+          max_daily_withdrawal: number | null
+          sms_notifications: boolean
+          two_factor_enabled: boolean
+          updated_at: string
+          user_id: string | null
+          withdrawal_confirmations: boolean
+        }
+        Insert: {
+          created_at?: string
+          email_notifications?: boolean
+          id?: string
+          login_alerts?: boolean
+          max_daily_withdrawal?: number | null
+          sms_notifications?: boolean
+          two_factor_enabled?: boolean
+          updated_at?: string
+          user_id?: string | null
+          withdrawal_confirmations?: boolean
+        }
+        Update: {
+          created_at?: string
+          email_notifications?: boolean
+          id?: string
+          login_alerts?: boolean
+          max_daily_withdrawal?: number | null
+          sms_notifications?: boolean
+          two_factor_enabled?: boolean
+          updated_at?: string
+          user_id?: string | null
+          withdrawal_confirmations?: boolean
         }
         Relationships: []
       }
