@@ -65,9 +65,9 @@ export type TranslationKey =
 
 export const translations: Record<Language, Record<TranslationKey, string>> = {
   en: {
-    title: 'PeopleFi',
-    subtitle: 'Where talent meets capital through blockchain technology. Connect with innovators and back revolutionary ideas with complete transparency and security.',
-    hero_title: 'Where Talent Meets Capital',
+    title: 'CirculumFi',
+    subtitle: 'Where talent meets capital in perfect harmony. Connect with visionaries and support breakthrough ideas through our circular investment ecosystem.',
+    hero_title: 'Where Vision Meets Value',
     startInvesting: 'Start Investing',
     applyFunding: 'Apply for Funding',
     apply_funding: 'Apply for Funding',
@@ -128,9 +128,9 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     all_rights_reserved: 'All rights reserved'
   },
   pt: {
-    title: 'PeopleFi',
-    subtitle: 'Onde talento encontra capital através da tecnologia blockchain. Conecte-se com inovadores e apoie ideias revolucionárias com total transparência e segurança.',
-    hero_title: 'Onde Talento Encontra Capital',
+    title: 'CirculumFi',
+    subtitle: 'Onde talento encontra capital em perfeita harmonia. Conecte-se com visionários e apoie ideias inovadoras através do nosso ecossistema de investimento circular.',
+    hero_title: 'Onde Visão Encontra Valor',
     startInvesting: 'Começar a Investir',
     applyFunding: 'Solicitar Financiamento',
     apply_funding: 'Solicitar Financiamento',
@@ -191,9 +191,9 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     all_rights_reserved: 'Todos os direitos reservados'
   },
   es: {
-    title: 'PeopleFi',
-    subtitle: 'Donde el talento encuentra capital a través de la tecnología blockchain. Conéctate con innovadores y respalda ideas revolucionarias con total transparencia y seguridad.',
-    hero_title: 'Donde Talento Encuentra Capital',
+    title: 'CirculumFi',
+    subtitle: 'Donde el talento encuentra capital en perfecta armonía. Conéctate con visionarios y respalda ideas innovadoras a través de nuestro ecosistema de inversión circular.',
+    hero_title: 'Donde Visión Encuentra Valor',
     startInvesting: 'Comenzar a Invertir',
     applyFunding: 'Solicitar Financiamiento',
     apply_funding: 'Solicitar Financiamiento',
