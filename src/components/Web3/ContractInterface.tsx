@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { useWeb3Auth } from '@/hooks/useWeb3Auth'
+import { useSolanaWallet } from '@/hooks/useSolanaWallet'
 import { useContractSecurity } from '@/hooks/useContractSecurity'
 import { useKYC } from '@/hooks/useKYC'
 import { useSecuritySettings } from '@/hooks/useSecuritySettings'
@@ -24,7 +24,8 @@ export const ContractInterface: React.FC<ContractInterfaceProps> = ({
   campaignId, 
   isCreator = false 
 }) => {
-  const { user, isConnected } = useWeb3Auth()
+  const { wallet } = useSolanaWallet()
+  const isConnected = wallet.connected
   const { securityStatus, executeSecureTransaction, validateTransaction } = useContractSecurity(campaignId)
   const { isKYCApproved, needsKYC } = useKYC()
   const { settings: securitySettings, validateInvestment } = useSecuritySettings(campaignId)
@@ -38,7 +39,7 @@ export const ContractInterface: React.FC<ContractInterfaceProps> = ({
     const errors: string[] = []
     const numAmount = parseFloat(amount)
 
-    if (!isConnected || !user) {
+    if (!isConnected || !wallet.publicKey) {
       errors.push('Carteira não conectada')
       return errors
     }
@@ -66,7 +67,7 @@ export const ContractInterface: React.FC<ContractInterfaceProps> = ({
     // Backend validation
     if (errors.length === 0) {
       try {
-        const backendValidation = await validateInvestment(numAmount, user.address)
+        const backendValidation = await validateInvestment(numAmount, wallet.publicKey.toString())
         if (!backendValidation.isValid) {
           errors.push(backendValidation.errorMessage)
         }
@@ -79,7 +80,7 @@ export const ContractInterface: React.FC<ContractInterfaceProps> = ({
   }
 
   const handleSecureInvestment = async () => {
-    if (!isConnected || !user) {
+    if (!isConnected || !wallet.publicKey) {
       toast.error('Conecte sua carteira primeiro')
       return
     }
@@ -96,7 +97,7 @@ export const ContractInterface: React.FC<ContractInterfaceProps> = ({
       
       // Execute with enhanced security
       const result = await executeSecureTransaction(
-        () => peopleFiContract.invest(campaignId, user.address, amount),
+        () => peopleFiContract.invest(campaignId, wallet.publicKey!.toString(), amount),
         {
           type: 'invest',
           amount,
@@ -107,7 +108,7 @@ export const ContractInterface: React.FC<ContractInterfaceProps> = ({
       // Record transaction in backend
       await recordTransaction({
         campaign_id: campaignId,
-        investor_id: user.address,
+        investor_id: wallet.publicKey!.toString(),
         transaction_hash: result.transactionHash,
         transaction_type: 'investment',
         amount: parseFloat(investmentAmount),

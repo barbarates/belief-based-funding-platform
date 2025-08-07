@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { CampaignCard } from '@/components/Investment/CampaignCard'
-import { useWeb3Auth } from '@/hooks/useWeb3Auth'
+import { useSolanaWallet } from '@/hooks/useSolanaWallet'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -10,7 +10,8 @@ import { useNavigate } from 'react-router-dom'
 
 const Investments = () => {
   const navigate = useNavigate()
-  const { user, isConnected } = useWeb3Auth()
+  const { wallet } = useSolanaWallet()
+  const isConnected = wallet.connected
   const [filter, setFilter] = useState('all')
 
   const campaigns = [
@@ -85,9 +86,9 @@ const Investments = () => {
             <h1 className="text-3xl font-bold text-white">Oportunidades de Investimento</h1>
           </div>
           
-          {isConnected && user && (
+          {isConnected && wallet.publicKey && (
             <Badge className="bg-green-600/50 text-green-200">
-              Carteira Conectada: {user.address.slice(0, 6)}...{user.address.slice(-4)}
+              Carteira Conectada: {wallet.publicKey.toString().slice(0, 6)}...{wallet.publicKey.toString().slice(-4)}
             </Badge>
           )}
         </div>

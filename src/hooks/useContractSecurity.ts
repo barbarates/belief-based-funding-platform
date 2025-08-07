@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react'
-import { useWeb3Auth } from './useWeb3Auth'
+import { useSolanaWallet } from './useSolanaWallet'
 import { peopleFiContract } from '@/contracts/PeopleFiSmartContract'
 
 export interface SecurityStatus {
@@ -12,7 +12,9 @@ export interface SecurityStatus {
 }
 
 export const useContractSecurity = (campaignId?: string) => {
-  const { isConnected, address } = useWeb3Auth()
+  const { wallet } = useSolanaWallet()
+  const isConnected = wallet.connected
+  const address = wallet.publicKey?.toString()
   const [securityStatus, setSecurityStatus] = useState<SecurityStatus>({
     isSecure: true,
     riskLevel: 'low',
@@ -69,12 +71,8 @@ export const useContractSecurity = (campaignId?: string) => {
       let riskLevel: 'low' | 'medium' | 'high' = 'low'
       let securityScore = 95
 
-      // Check network security
-      if (window.ethereum?.networkVersion !== '137') {
-        warnings.push('Rede não é Polygon Mainnet')
-        riskLevel = 'medium'
-        securityScore -= 10
-      }
+      // Check network security (Solana devnet)
+      // For now, we'll skip network checks for Solana
 
       // Check contract status
       if (campaignId) {

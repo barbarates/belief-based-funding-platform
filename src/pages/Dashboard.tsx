@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom'
-import { useWeb3Auth } from '@/hooks/useWeb3Auth'
+import { useSolanaWallet } from '@/hooks/useSolanaWallet'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -8,7 +8,9 @@ import { ArrowLeft, Wallet, TrendingUp, Users, DollarSign } from 'lucide-react'
 
 const Dashboard = () => {
   const navigate = useNavigate()
-  const { user, isConnected, balance } = useWeb3Auth()
+  const { wallet } = useSolanaWallet()
+  const isConnected = wallet.connected
+  const balance = wallet.balance
 
   // Dados mockados do investidor
   const investmentData = {

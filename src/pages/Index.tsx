@@ -4,11 +4,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { TrendingUp, Shield, Users, DollarSign, Star, Clock, CheckCircle, Wallet, Globe, ArrowRight, Zap, Target, Award, ChevronDown } from "lucide-react";
-import { useWeb3Auth } from "@/hooks/useWeb3Auth";
+import { useSolanaWallet } from "@/hooks/useSolanaWallet";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const Index = () => {
-  const { isConnected, connectWallet, address } = useWeb3Auth();
+  const { wallet, connect } = useSolanaWallet();
+  const isConnected = wallet.connected;
+  const address = wallet.publicKey?.toString();
   const { language, t, changeLanguage, availableLanguages } = useLanguage();
 
   const featuredPeople = [
@@ -144,7 +146,7 @@ const Index = () => {
 
               {/* Wallet Connection */}
               <Button 
-                onClick={isConnected ? () => window.location.href = '/dashboard' : connectWallet}
+                onClick={isConnected ? () => window.location.href = '/dashboard' : connect}
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-lg shadow-purple-500/25"
               >
                 <Wallet className="h-4 w-4 mr-2" />
