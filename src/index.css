@@ -8,78 +8,71 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;  /* Pure white */
-    --foreground: 0 0% 9%;    /* Near black */
+    --background: 0 0% 8%;     /* Dark charcoal */
+    --foreground: 0 0% 96%;    /* Light gray text */
 
-    --card: 0 0% 100%;        /* Pure white */
-    --card-foreground: 0 0% 9%;
+    --card: 0 0% 12%;          /* Dark card */
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 213 94% 68%;    /* Apple blue */
-    --primary-foreground: 0 0% 100%;
+    --primary: 217 91% 60%;    /* Apple-inspired blue */
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 0 0% 96%;     /* Very light gray */
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 0 0% 16%;     /* Dark secondary */
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 96%;         /* Light gray */
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 16%;         /* Dark muted */
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 213 94% 68%;     /* Apple blue */
-    --accent-foreground: 0 0% 100%;
+    --accent: 27 96% 61%;      /* Warm orange accent */
+    --accent-foreground: 0 0% 8%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 96%;
 
-    --border: 0 0% 89%;        /* Subtle border */
-    --input: 0 0% 89%;
-    --ring: 213 94% 68%;       /* Apple blue focus */
+    --border: 0 0% 20%;        /* Dark border */
+    --input: 0 0% 16%;
+    --ring: 217 91% 60%;       /* Apple blue focus */
 
-    --radius: 0.5rem;          /* Apple-like radius */
+    --radius: 0.75rem;         /* Apple-like radius */
     
-    /* Apple-Inspired Design Tokens */
-    --sage-green: 0 0% 13%;    /* Space gray */
-    --sage-green-light: 0 0% 60%;  /* Medium gray */
-    --sage-green-dark: 0 0% 9%;    /* Near black */
+    /* Sophisticated Dark Palette */
+    --space-gray: 0 0% 8%;     /* Main background */
+    --space-gray-light: 0 0% 16%;  /* Cards and surfaces */
+    --space-gray-dark: 0 0% 4%;    /* Deep backgrounds */
     
-    --teal: 213 94% 68%;       /* Apple blue */
-    --teal-light: 213 78% 84%; /* Light blue */
-    --teal-dark: 213 100% 50%; /* Deep blue */
+    --steel-blue: 217 91% 60%; /* Primary accent */
+    --steel-blue-light: 217 78% 75%; /* Light variant */
+    --steel-blue-dark: 217 100% 45%; /* Dark variant */
     
-    --warm-gray: 0 0% 45%;     /* Text gray */
-    --warm-gray-light: 0 0% 96%;   /* Background gray */
-    --warm-gray-dark: 0 0% 13%;    /* Dark gray */
+    --silver: 0 0% 65%;        /* Text and borders */
+    --silver-light: 0 0% 96%;  /* Primary text */
+    --silver-dark: 0 0% 45%;   /* Muted text */
     
-    --gold: 32 95% 44%;        /* Subtle orange */
-    --gold-light: 32 95% 64%;  /* Light orange */
-    --gold-muted: 0 0% 71%;    /* Muted gray */
+    --amber: 27 96% 61%;       /* Accent color */
+    --amber-light: 27 96% 75%; /* Light accent */
+    --amber-muted: 27 50% 45%; /* Muted accent */
     
-    /* Clean Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--teal)), hsl(var(--teal-light)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--warm-gray-light)), hsl(var(--background)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--warm-gray-light)));
+    /* Sophisticated Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--steel-blue)), hsl(var(--steel-blue-light)));
+    --gradient-surface: linear-gradient(135deg, hsl(var(--space-gray)), hsl(var(--space-gray-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--space-gray-dark)), hsl(var(--space-gray)));
     
-    /* Subtle Shadows */
-    --shadow-soft: 0 1px 3px hsla(0, 0%, 0%, 0.05);
-    --shadow-elegant: 0 4px 16px hsla(0, 0%, 0%, 0.08);
-    --shadow-glow: 0 0 15px hsl(var(--teal) / 0.1);
+    /* Premium Shadows */
+    --shadow-soft: 0 2px 8px hsla(0, 0%, 0%, 0.3);
+    --shadow-elegant: 0 8px 32px hsla(0, 0%, 0%, 0.4);
+    --shadow-glow: 0 0 24px hsl(var(--steel-blue) / 0.3);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 12%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
