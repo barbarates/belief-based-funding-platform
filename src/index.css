@@ -39,26 +39,26 @@ All colors MUST be HSL.
     --radius: 0.75rem;
     
     /* Custom CirculumFi Design Tokens */
-    --sage-green: 110 20% 50%;
-    --sage-green-light: 110 30% 85%;
-    --sage-green-dark: 110 25% 25%;
+    --sage-green: 160 60% 40%;
+    --sage-green-light: 160 50% 70%;
+    --sage-green-dark: 160 70% 20%;
     
-    --teal: 185 40% 45%;
-    --teal-light: 185 30% 80%;
-    --teal-dark: 185 50% 25%;
+    --teal: 185 80% 50%;
+    --teal-light: 185 70% 75%;
+    --teal-dark: 185 90% 30%;
     
-    --warm-gray: 25 10% 60%;
-    --warm-gray-light: 25 15% 92%;
-    --warm-gray-dark: 25 15% 20%;
+    --warm-gray: 25 20% 45%;
+    --warm-gray-light: 25 15% 85%;
+    --warm-gray-dark: 25 25% 25%;
     
-    --gold: 45 95% 55%;
-    --gold-light: 45 85% 85%;
-    --gold-muted: 45 25% 70%;
+    --gold: 45 100% 60%;
+    --gold-light: 45 95% 80%;
+    --gold-muted: 45 70% 50%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--sage-green)), hsl(var(--teal)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--sage-green-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--warm-gray-light)), hsl(var(--teal-light)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--teal)), hsl(var(--sage-green)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--teal-dark)), hsl(var(--sage-green-dark)));
     
     /* Shadows */
     --shadow-soft: 0 4px 20px hsl(var(--sage-green) / 0.1);
@@ -112,21 +112,21 @@ All colors MUST be HSL.
     --ring: 160 30% 60%;
     
     /* Dark theme custom tokens */
-    --sage-green: 110 25% 60%;
-    --sage-green-light: 110 20% 30%;
-    --sage-green-dark: 110 30% 15%;
+    --sage-green: 160 55% 45%;
+    --sage-green-light: 160 45% 35%;
+    --sage-green-dark: 160 65% 25%;
     
-    --teal: 185 35% 55%;
-    --teal-light: 185 25% 35%;
-    --teal-dark: 185 40% 15%;
+    --teal: 185 75% 55%;
+    --teal-light: 185 65% 40%;
+    --teal-dark: 185 85% 20%;
     
-    --warm-gray: 25 8% 70%;
-    --warm-gray-light: 25 10% 25%;
-    --warm-gray-dark: 25 20% 8%;
+    --warm-gray: 25 15% 65%;
+    --warm-gray-light: 25 12% 30%;
+    --warm-gray-dark: 25 20% 15%;
     
-    --gold: 45 80% 65%;
-    --gold-light: 45 40% 40%;
-    --gold-muted: 45 30% 50%;
+    --gold: 45 95% 70%;
+    --gold-light: 45 80% 45%;
+    --gold-muted: 45 75% 55%;
     
     /* Dark gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--sage-green-dark)), hsl(var(--teal-dark)));
