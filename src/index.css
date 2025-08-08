@@ -8,62 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 25 95% 98%;
-    --foreground: 185 10% 15%;
+    --background: 0 0% 100%;  /* Pure white */
+    --foreground: 0 0% 9%;    /* Near black */
 
-    --card: 0 0% 100%;
-    --card-foreground: 185 10% 15%;
+    --card: 0 0% 100%;        /* Pure white */
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 185 10% 15%;
+    --popover-foreground: 0 0% 9%;
 
-    --primary: 210 20% 25%;  /* Deep navy */
-    --primary-foreground: 0 0% 100%;  /* Pure white */
+    --primary: 213 94% 68%;    /* Apple blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 160 15% 85%;
-    --secondary-foreground: 160 25% 25%;
+    --secondary: 0 0% 96%;     /* Very light gray */
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 160 10% 92%;
-    --muted-foreground: 160 5% 50%;
+    --muted: 0 0% 96%;         /* Light gray */
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 200 100% 40%;  /* Modern blue */
-    --accent-foreground: 0 0% 100%;  /* White text */
+    --accent: 213 94% 68%;     /* Apple blue */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 160 15% 88%;
-    --input: 160 15% 88%;
-    --ring: 160 25% 35%;
+    --border: 0 0% 89%;        /* Subtle border */
+    --input: 0 0% 89%;
+    --ring: 213 94% 68%;       /* Apple blue focus */
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;          /* Apple-like radius */
     
-    /* Custom CirculumFi Design Tokens - Modern Professional */
-    --sage-green: 210 20% 25%;  /* Deep navy */
-    --sage-green-light: 210 15% 45%;  /* Slate blue */
-    --sage-green-dark: 210 25% 15%;  /* Darker navy */
+    /* Apple-Inspired Design Tokens */
+    --sage-green: 0 0% 13%;    /* Space gray */
+    --sage-green-light: 0 0% 60%;  /* Medium gray */
+    --sage-green-dark: 0 0% 9%;    /* Near black */
     
-    --teal: 200 100% 40%;  /* Modern blue */
-    --teal-light: 200 80% 60%;  /* Light blue */
-    --teal-dark: 200 100% 25%;  /* Deep blue */
+    --teal: 213 94% 68%;       /* Apple blue */
+    --teal-light: 213 78% 84%; /* Light blue */
+    --teal-dark: 213 100% 50%; /* Deep blue */
     
-    --warm-gray: 220 10% 50%;  /* Cool gray */
-    --warm-gray-light: 220 8% 95%;  /* Very light gray */
-    --warm-gray-dark: 220 15% 20%;  /* Dark gray */
+    --warm-gray: 0 0% 45%;     /* Text gray */
+    --warm-gray-light: 0 0% 96%;   /* Background gray */
+    --warm-gray-dark: 0 0% 13%;    /* Dark gray */
     
-    --gold: 35 100% 50%;  /* Vibrant orange accent */
-    --gold-light: 35 100% 65%;  /* Light orange */
-    --gold-muted: 220 5% 65%;  /* Muted gray accent */
+    --gold: 32 95% 44%;        /* Subtle orange */
+    --gold-light: 32 95% 64%;  /* Light orange */
+    --gold-muted: 0 0% 71%;    /* Muted gray */
     
-    /* Gradients - Sophisticated */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--teal-dark)), hsl(var(--sage-green)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--sage-green-dark)), hsl(var(--teal-dark)));
+    /* Clean Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--teal)), hsl(var(--teal-light)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--warm-gray-light)), hsl(var(--background)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--warm-gray-light)));
     
-    /* Shadows - Professional */
-    --shadow-soft: 0 2px 10px hsl(var(--sage-green) / 0.08);
-    --shadow-elegant: 0 8px 25px hsl(var(--sage-green-dark) / 0.12);
-    --shadow-glow: 0 0 20px hsl(var(--teal) / 0.15);
+    /* Subtle Shadows */
+    --shadow-soft: 0 1px 3px hsla(0, 0%, 0%, 0.05);
+    --shadow-elegant: 0 4px 16px hsla(0, 0%, 0%, 0.08);
+    --shadow-glow: 0 0 15px hsl(var(--teal) / 0.1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -83,60 +83,60 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 185 15% 8%;
-    --foreground: 25 15% 95%;
+    --background: 0 0% 9%;     /* Near black */
+    --foreground: 0 0% 98%;    /* Near white */
 
-    --card: 185 10% 12%;
-    --card-foreground: 25 15% 95%;
+    --card: 0 0% 13%;          /* Dark gray card */
+    --card-foreground: 0 0% 98%;
 
-    --popover: 185 10% 12%;
-    --popover-foreground: 25 15% 95%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 160 30% 60%;
-    --primary-foreground: 185 15% 8%;
+    --primary: 213 94% 68%;    /* Same Apple blue */
+    --primary-foreground: 0 0% 9%;
 
-    --secondary: 185 10% 20%;
-    --secondary-foreground: 25 15% 90%;
+    --secondary: 0 0% 16%;     /* Dark secondary */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 185 10% 18%;
-    --muted-foreground: 185 5% 65%;
+    --muted: 0 0% 16%;         /* Dark muted */
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 185 30% 35%;
-    --accent-foreground: 25 15% 95%;
+    --accent: 213 94% 68%;     /* Apple blue */
+    --accent-foreground: 0 0% 9%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 185 10% 22%;
-    --input: 185 10% 22%;
-    --ring: 160 30% 60%;
+    --border: 0 0% 20%;        /* Dark border */
+    --input: 0 0% 20%;
+    --ring: 213 94% 68%;       /* Apple blue focus */
     
-    /* Dark theme - Modern Professional */
-    --sage-green: 210 15% 35%;  /* Lighter navy for dark mode */
-    --sage-green-light: 210 10% 55%;  /* Light slate */
-    --sage-green-dark: 210 20% 20%;  /* Deep navy */
+    /* Dark Apple-Inspired Tokens */
+    --sage-green: 0 0% 71%;    /* Light gray for dark mode */
+    --sage-green-light: 0 0% 45%;  /* Medium gray */
+    --sage-green-dark: 0 0% 13%;   /* Dark gray */
     
-    --teal: 200 90% 50%;  /* Bright blue */
-    --teal-light: 200 70% 70%;  /* Light blue */
-    --teal-dark: 200 100% 30%;  /* Deep blue */
+    --teal: 213 94% 68%;       /* Apple blue */
+    --teal-light: 213 78% 84%; /* Light blue */
+    --teal-dark: 213 100% 40%; /* Deeper blue */
     
-    --warm-gray: 220 8% 60%;  /* Light cool gray */
-    --warm-gray-light: 220 10% 25%;  /* Dark gray for backgrounds */
-    --warm-gray-dark: 220 12% 15%;  /* Very dark gray */
+    --warm-gray: 0 0% 71%;     /* Light text */
+    --warm-gray-light: 0 0% 16%;   /* Dark background */
+    --warm-gray-dark: 0 0% 9%;     /* Near black */
     
-    --gold: 35 100% 55%;  /* Bright orange */
-    --gold-light: 35 90% 70%;  /* Light orange */
-    --gold-muted: 220 5% 70%;  /* Light gray accent */
+    --gold: 32 95% 54%;        /* Brighter orange */
+    --gold-light: 32 95% 74%;  /* Light orange */
+    --gold-muted: 0 0% 45%;    /* Medium gray */
     
-    /* Dark gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--sage-green-dark)), hsl(var(--teal-dark)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--sage-green-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--warm-gray-light)), hsl(var(--teal-light)));
+    /* Dark Clean Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--warm-gray-dark)), hsl(var(--sage-green-dark)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--warm-gray-light)), hsl(var(--background)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--warm-gray-light)));
     
-    /* Dark shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--sage-green-dark) / 0.3);
-    --shadow-elegant: 0 8px 30px hsl(var(--teal-dark) / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--gold-muted) / 0.3);
+    /* Dark Subtle Shadows */
+    --shadow-soft: 0 2px 8px hsla(0, 0%, 0%, 0.2);
+    --shadow-elegant: 0 8px 24px hsla(0, 0%, 0%, 0.3);
+    --shadow-glow: 0 0 20px hsl(var(--teal) / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
