@@ -17,8 +17,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 185 10% 15%;
 
-    --primary: 160 25% 35%;
-    --primary-foreground: 25 95% 98%;
+    --primary: 210 20% 25%;  /* Deep navy */
+    --primary-foreground: 0 0% 100%;  /* Pure white */
 
     --secondary: 160 15% 85%;
     --secondary-foreground: 160 25% 25%;
@@ -26,8 +26,8 @@ All colors MUST be HSL.
     --muted: 160 10% 92%;
     --muted-foreground: 160 5% 50%;
 
-    --accent: 185 40% 70%;
-    --accent-foreground: 185 10% 15%;
+    --accent: 200 100% 40%;  /* Modern blue */
+    --accent-foreground: 0 0% 100%;  /* White text */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -38,32 +38,32 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
     
-    /* Custom CirculumFi Design Tokens */
-    --sage-green: 160 60% 40%;
-    --sage-green-light: 160 50% 70%;
-    --sage-green-dark: 160 70% 20%;
+    /* Custom CirculumFi Design Tokens - Modern Professional */
+    --sage-green: 210 20% 25%;  /* Deep navy */
+    --sage-green-light: 210 15% 45%;  /* Slate blue */
+    --sage-green-dark: 210 25% 15%;  /* Darker navy */
     
-    --teal: 185 80% 50%;
-    --teal-light: 185 70% 75%;
-    --teal-dark: 185 90% 30%;
+    --teal: 200 100% 40%;  /* Modern blue */
+    --teal-light: 200 80% 60%;  /* Light blue */
+    --teal-dark: 200 100% 25%;  /* Deep blue */
     
-    --warm-gray: 25 20% 45%;
-    --warm-gray-light: 25 15% 85%;
-    --warm-gray-dark: 25 25% 25%;
+    --warm-gray: 220 10% 50%;  /* Cool gray */
+    --warm-gray-light: 220 8% 95%;  /* Very light gray */
+    --warm-gray-dark: 220 15% 20%;  /* Dark gray */
     
-    --gold: 45 100% 60%;
-    --gold-light: 45 95% 80%;
-    --gold-muted: 45 70% 50%;
+    --gold: 35 100% 50%;  /* Vibrant orange accent */
+    --gold-light: 35 100% 65%;  /* Light orange */
+    --gold-muted: 220 5% 65%;  /* Muted gray accent */
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--teal)), hsl(var(--sage-green)));
+    /* Gradients - Sophisticated */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--teal-dark)), hsl(var(--sage-green)));
     --gradient-warm: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--teal-dark)), hsl(var(--sage-green-dark)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--sage-green-dark)), hsl(var(--teal-dark)));
     
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--sage-green) / 0.1);
-    --shadow-elegant: 0 8px 30px hsl(var(--teal) / 0.15);
-    --shadow-glow: 0 0 40px hsl(var(--gold) / 0.2);
+    /* Shadows - Professional */
+    --shadow-soft: 0 2px 10px hsl(var(--sage-green) / 0.08);
+    --shadow-elegant: 0 8px 25px hsl(var(--sage-green-dark) / 0.12);
+    --shadow-glow: 0 0 20px hsl(var(--teal) / 0.15);
 
     --sidebar-background: 0 0% 98%;
 
@@ -111,22 +111,22 @@ All colors MUST be HSL.
     --input: 185 10% 22%;
     --ring: 160 30% 60%;
     
-    /* Dark theme custom tokens */
-    --sage-green: 160 55% 45%;
-    --sage-green-light: 160 45% 35%;
-    --sage-green-dark: 160 65% 25%;
+    /* Dark theme - Modern Professional */
+    --sage-green: 210 15% 35%;  /* Lighter navy for dark mode */
+    --sage-green-light: 210 10% 55%;  /* Light slate */
+    --sage-green-dark: 210 20% 20%;  /* Deep navy */
     
-    --teal: 185 75% 55%;
-    --teal-light: 185 65% 40%;
-    --teal-dark: 185 85% 20%;
+    --teal: 200 90% 50%;  /* Bright blue */
+    --teal-light: 200 70% 70%;  /* Light blue */
+    --teal-dark: 200 100% 30%;  /* Deep blue */
     
-    --warm-gray: 25 15% 65%;
-    --warm-gray-light: 25 12% 30%;
-    --warm-gray-dark: 25 20% 15%;
+    --warm-gray: 220 8% 60%;  /* Light cool gray */
+    --warm-gray-light: 220 10% 25%;  /* Dark gray for backgrounds */
+    --warm-gray-dark: 220 12% 15%;  /* Very dark gray */
     
-    --gold: 45 95% 70%;
-    --gold-light: 45 80% 45%;
-    --gold-muted: 45 75% 55%;
+    --gold: 35 100% 55%;  /* Bright orange */
+    --gold-light: 35 90% 70%;  /* Light orange */
+    --gold-muted: 220 5% 70%;  /* Light gray accent */
     
     /* Dark gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--sage-green-dark)), hsl(var(--teal-dark)));
