@@ -173,43 +173,52 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-warm opacity-20"></div>
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-infinity opacity-30"></div>
         <div className="container mx-auto px-6 relative">
-          <div className="text-center max-w-5xl mx-auto">
-            <Badge className="mb-8 bg-sage-green/20 text-sage-green-dark border-sage-green/30 font-medium">
-              <Sparkles className="h-4 w-4 mr-2" />
-              {t('platform_badge')}
+          <div className="text-center max-w-6xl mx-auto">
+            {/* Logo Central Gigante */}
+            <div className="mb-12">
+              <img 
+                src={atriafiLogo} 
+                alt="AtriaFi" 
+                className="w-80 h-80 lg:w-96 lg:h-96 mx-auto mb-8 drop-shadow-2xl animate-fade-in" 
+              />
+            </div>
+            
+            <Badge className="mb-8 bg-cosmic-lilac/20 text-cosmic-lilac border-cosmic-lilac/30 font-medium text-lg px-6 py-2">
+              <Sparkles className="h-5 w-5 mr-2" />
+              {t("platform_badge")}
             </Badge>
             
-            <h1 className="text-6xl lg:text-8xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-sage-green-dark via-teal to-sage-green bg-clip-text text-transparent">
-                {t('hero_title')}
+            <h1 className="text-7xl lg:text-9xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-cosmic bg-clip-text text-transparent">
+                {t("hero_title")}
               </span>
             </h1>
             
-            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
-              {t('subtitle')}
+            <p className="text-2xl text-stellar-silver mb-16 max-w-4xl mx-auto leading-relaxed font-medium">
+              {t("subtitle")}
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
+            <div className="flex flex-col sm:flex-row gap-8 justify-center mb-20">
               <Button 
                 size="lg" 
-                className="bg-gradient-primary hover:shadow-elegant text-lg px-10 py-6 font-medium"
-                onClick={() => window.location.href = '/investments'}
+                className="bg-gradient-cosmic hover:shadow-cosmic text-xl px-12 py-8 font-medium rounded-2xl"
+                onClick={() => window.location.href = "/investments"}
               >
-                <Target className="h-5 w-5 mr-3" />
-                {t('startInvesting')}
-                <ArrowRight className="h-5 w-5 ml-3" />
+                <Target className="h-6 w-6 mr-3" />
+                {t("startInvesting")}
+                <ArrowRight className="h-6 w-6 ml-3" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-sage-green text-sage-green hover:bg-sage-green/10 text-lg px-10 py-6 font-medium"
-                onClick={() => window.location.href = '/profile/apply'}
+                className="border-2 border-cosmic-lilac text-cosmic-lilac hover:bg-cosmic-lilac/10 text-xl px-12 py-8 font-medium rounded-2xl"
+                onClick={() => window.location.href = "/profile/apply"}
               >
-                <Award className="h-5 w-5 mr-3" />
-                {t('apply_funding')}
+                <Award className="h-6 w-6 mr-3" />
+                {t("apply_funding")}
               </Button>
             </div>
 

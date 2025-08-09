@@ -62,37 +62,41 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// CirculumFi Custom Colors
-				'sage-green': {
-					DEFAULT: 'hsl(var(--sage-green))',
-					light: 'hsl(var(--sage-green-light))',
-					dark: 'hsl(var(--sage-green-dark))'
+				// AtriaFi Custom Colors
+				'cosmic-lilac': {
+					DEFAULT: 'hsl(var(--cosmic-lilac))',
+					light: 'hsl(var(--cosmic-lilac-light))',
+					dark: 'hsl(var(--cosmic-lilac-dark))'
 				},
-				'teal': {
-					DEFAULT: 'hsl(var(--teal))',
-					light: 'hsl(var(--teal-light))',
-					dark: 'hsl(var(--teal-dark))'
+				'burgundy': {
+					DEFAULT: 'hsl(var(--burgundy))',
+					light: 'hsl(var(--burgundy-light))',
+					muted: 'hsl(var(--burgundy-muted))'
 				},
-				'warm-gray': {
-					DEFAULT: 'hsl(var(--warm-gray))',
-					light: 'hsl(var(--warm-gray-light))',
-					dark: 'hsl(var(--warm-gray-dark))'
+				'graphite': {
+					DEFAULT: 'hsl(var(--graphite))',
+					light: 'hsl(var(--graphite-light))',
+					dark: 'hsl(var(--graphite-dark))'
 				},
-				'gold': {
-					DEFAULT: 'hsl(var(--gold))',
-					light: 'hsl(var(--gold-light))',
-					muted: 'hsl(var(--gold-muted))'
+				'stellar-silver': {
+					DEFAULT: 'hsl(var(--stellar-silver))',
+					light: 'hsl(var(--stellar-silver-light))',
+					dark: 'hsl(var(--stellar-silver-dark))'
 				}
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-warm': 'var(--gradient-warm)',
-				'gradient-hero': 'var(--gradient-hero)'
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-cosmic': 'var(--gradient-cosmic)',
+				'gradient-nebula': 'var(--gradient-nebula)',
+				'gradient-infinity': 'var(--gradient-infinity)'
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
 				'elegant': 'var(--shadow-elegant)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'cosmic': 'var(--shadow-cosmic)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -115,11 +119,22 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px) scale(0.95)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0) scale(1)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.8s ease-out'
 			}
 		}
 	},
