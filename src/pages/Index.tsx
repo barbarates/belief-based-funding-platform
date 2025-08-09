@@ -25,6 +25,8 @@ import {
 import { useSolanaWallet } from "@/hooks/useSolanaWallet";
 import { useLanguage } from "@/hooks/useLanguage";
 import atriafiLogo from "@/assets/atrafi-logo.png";
+import atriafiHeroBg from "@/assets/atrafi-hero-bg.png";
+import atriafiElements from "@/assets/atrafi-decorative-elements.png";
 
 const Index = () => {
   const { wallet, connect } = useSolanaWallet();
@@ -173,38 +175,55 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-infinity opacity-30"></div>
-        <div className="container mx-auto px-6 relative">
-          <div className="text-center max-w-6xl mx-auto">
-            {/* Logo Central Gigante */}
-            <div className="mb-12">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: `url(${atriafiHeroBg})` }}
+        ></div>
+        
+        {/* Floating Decorative Elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 opacity-30 animate-pulse">
+          <img src={atriafiElements} alt="" className="w-full h-full object-contain" />
+        </div>
+        <div className="absolute bottom-40 right-20 w-24 h-24 opacity-40 animate-pulse delay-1000">
+          <img src={atriafiElements} alt="" className="w-full h-full object-contain rotate-45" />
+        </div>
+        <div className="absolute top-1/3 right-10 w-20 h-20 opacity-25 animate-pulse delay-500">
+          <img src={atriafiElements} alt="" className="w-full h-full object-contain -rotate-12" />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center max-w-7xl mx-auto">
+            {/* Logo e Título Principal */}
+            <div className="mb-16">
               <img 
                 src={atriafiLogo} 
                 alt="AtriaFi" 
-                className="w-80 h-80 lg:w-96 lg:h-96 mx-auto mb-8 drop-shadow-2xl animate-fade-in" 
+                className="w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-12 drop-shadow-2xl animate-fade-in" 
               />
+              
+              <h1 className="text-6xl lg:text-8xl xl:text-9xl font-bold mb-8 leading-tight">
+                <span className="bg-gradient-cosmic bg-clip-text text-transparent">
+                  AtriaFi
+                </span>
+              </h1>
+              
+              <p className="text-2xl lg:text-3xl text-stellar-silver/90 mb-8 max-w-5xl mx-auto leading-relaxed font-medium">
+                {t("subtitle")}
+              </p>
+              
+              <Badge className="mb-12 bg-cosmic-lilac/20 text-cosmic-lilac border-cosmic-lilac/30 font-medium text-lg px-8 py-3">
+                <Sparkles className="h-5 w-5 mr-2" />
+                {t("platform_badge")}
+              </Badge>
             </div>
             
-            <Badge className="mb-8 bg-cosmic-lilac/20 text-cosmic-lilac border-cosmic-lilac/30 font-medium text-lg px-6 py-2">
-              <Sparkles className="h-5 w-5 mr-2" />
-              {t("platform_badge")}
-            </Badge>
-            
-            <h1 className="text-7xl lg:text-9xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-cosmic bg-clip-text text-transparent">
-                {t("hero_title")}
-              </span>
-            </h1>
-            
-            <p className="text-2xl text-stellar-silver mb-16 max-w-4xl mx-auto leading-relaxed font-medium">
-              {t("subtitle")}
-            </p>
-            
+            {/* Botões de Ação */}
             <div className="flex flex-col sm:flex-row gap-8 justify-center mb-20">
               <Button 
                 size="lg" 
-                className="bg-gradient-cosmic hover:shadow-cosmic text-xl px-12 py-8 font-medium rounded-2xl"
+                className="bg-gradient-cosmic hover:shadow-cosmic text-xl px-16 py-8 font-medium rounded-2xl transform hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = "/investments"}
               >
                 <Target className="h-6 w-6 mr-3" />
@@ -214,7 +233,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-cosmic-lilac text-cosmic-lilac hover:bg-cosmic-lilac/10 text-xl px-12 py-8 font-medium rounded-2xl"
+                className="border-2 border-cosmic-lilac text-cosmic-lilac hover:bg-cosmic-lilac/10 text-xl px-16 py-8 font-medium rounded-2xl transform hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = "/profile/apply"}
               >
                 <Award className="h-6 w-6 mr-3" />
@@ -223,22 +242,29 @@ const Index = () => {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {stats.map((stat, idx) => (
-                <Card key={idx} className="bg-card/80 backdrop-blur-sm border-border hover:shadow-soft transition-all duration-300">
-                  <CardContent className="pt-6 text-center">
-                    <div className="flex justify-center mb-3 text-sage-green">
+                <Card key={idx} className="bg-card/60 backdrop-blur-xl border-border/50 hover:shadow-cosmic transition-all duration-500 transform hover:scale-105">
+                  <CardContent className="pt-8 pb-8 text-center">
+                    <div className="flex justify-center mb-4 text-cosmic-lilac">
                       {stat.icon}
                     </div>
-                    <div className="text-3xl font-bold text-foreground mb-2">{stat.value}</div>
-                    <div className="text-muted-foreground text-sm mb-3">{stat.label}</div>
-                    <Badge className="bg-teal/20 text-teal-dark text-xs font-medium">
+                    <div className="text-4xl font-bold text-foreground mb-2">{stat.value}</div>
+                    <div className="text-muted-foreground text-sm mb-4 font-medium">{stat.label}</div>
+                    <Badge className="bg-burgundy/20 text-burgundy text-xs font-medium">
                       {stat.growth}
                     </Badge>
                   </CardContent>
                 </Card>
               ))}
             </div>
+          </div>
+        </div>
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-cosmic-lilac rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-cosmic-lilac rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
