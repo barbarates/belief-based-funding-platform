@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { useSolanaWallet } from "@/hooks/useSolanaWallet";
 import { useLanguage } from "@/hooks/useLanguage";
-import circulumfiLogo from "@/assets/circulumfi-logo.png";
+import atriafiLogo from "@/assets/atrafi-logo.png";
 
 const Index = () => {
   const { wallet, connect } = useSolanaWallet();
@@ -125,7 +125,7 @@ const Index = () => {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-3">
-                <img src={circulumfiLogo} alt="CirculumFi" className="w-10 h-10" />
+                <img src={atriafiLogo} alt="AtriaFi" className="w-10 h-10" />
                 <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                   {t('title')}
                 </h1>
@@ -445,7 +445,7 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <img src={circulumfiLogo} alt="CirculumFi" className="w-8 h-8" />
+                <img src={atriafiLogo} alt="AtriaFi" className="w-8 h-8" />
                 <h3 className="text-xl font-bold text-foreground">{t('title')}</h3>
               </div>
               <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">

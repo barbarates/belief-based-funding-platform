@@ -65,7 +65,7 @@ export type TranslationKey =
 
 export const translations: Record<Language, Record<TranslationKey, string>> = {
   en: {
-    title: 'CirculumFi',
+    title: 'AtriaFi',
     subtitle: 'Where talent meets capital in perfect harmony. Connect with visionaries and support breakthrough ideas through our circular investment ecosystem.',
     hero_title: 'Where Vision Meets Value',
     startInvesting: 'Start Investing',
@@ -128,7 +128,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     all_rights_reserved: 'All rights reserved'
   },
   pt: {
-    title: 'CirculumFi',
+    title: 'AtriaFi',
     subtitle: 'Onde talento encontra capital em perfeita harmonia. Conecte-se com visionários e apoie ideias inovadoras através do nosso ecossistema de investimento circular.',
     hero_title: 'Onde Visão Encontra Valor',
     startInvesting: 'Começar a Investir',
@@ -191,7 +191,7 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     all_rights_reserved: 'Todos os direitos reservados'
   },
   es: {
-    title: 'CirculumFi',
+    title: 'AtriaFi',
     subtitle: 'Donde el talento encuentra capital en perfecta armonía. Conéctate con visionarios y respalda ideas innovadoras a través de nuestro ecosistema de inversión circular.',
     hero_title: 'Donde Visión Encuentra Valor',
     startInvesting: 'Comenzar a Invertir',
