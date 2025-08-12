@@ -195,14 +195,8 @@ const Index = () => {
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-7xl mx-auto">
-            {/* Logo e Título Principal */}
+            {/* Título Principal */}
             <div className="mb-16">
-              <img 
-                src={atriafiLogo} 
-                alt="AtriaFi" 
-                className="w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-12 drop-shadow-2xl animate-fade-in" 
-              />
-              
               <h1 className="text-6xl lg:text-8xl xl:text-9xl font-bold mb-8 leading-tight">
                 <span className="bg-gradient-cosmic bg-clip-text text-transparent">
                   AtriaFi

@@ -43,11 +43,11 @@ All colors MUST be HSL.
     --graphite-light: 240 20% 25%; /* Lighter graphite */
     --graphite-dark: 240 25% 8%;   /* Deepest space */
     
-    --cosmic-lilac: 280 60% 65%;   /* Primary lilac */
-    --cosmic-lilac-light: 280 45% 80%; /* Light lilac */
-    --cosmic-lilac-dark: 280 75% 45%;  /* Deep lilac */
+    --cosmic-lilac: 340 65% 35%;   /* Burgundy cosmic */
+    --cosmic-lilac-light: 340 55% 55%; /* Light burgundy */
+    --cosmic-lilac-dark: 340 75% 25%;  /* Deep burgundy */
     
-    --burgundy: 320 45% 55%;       /* Warm burgundy */
+    --burgundy: 340 75% 25%;       /* Deep burgundy */
     --burgundy-light: 320 35% 70%; /* Light burgundy */
     --burgundy-muted: 320 25% 35%; /* Muted burgundy */
     
