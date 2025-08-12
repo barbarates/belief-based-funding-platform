@@ -182,16 +182,6 @@ const Index = () => {
           style={{ backgroundImage: `url(${atriafiHeroBg})` }}
         ></div>
         
-        {/* Floating Decorative Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 opacity-30 animate-pulse">
-          <img src={atriafiElements} alt="" className="w-full h-full object-contain" />
-        </div>
-        <div className="absolute bottom-40 right-20 w-24 h-24 opacity-40 animate-pulse delay-1000">
-          <img src={atriafiElements} alt="" className="w-full h-full object-contain rotate-45" />
-        </div>
-        <div className="absolute top-1/3 right-10 w-20 h-20 opacity-25 animate-pulse delay-500">
-          <img src={atriafiElements} alt="" className="w-full h-full object-contain -rotate-12" />
-        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-7xl mx-auto">
