@@ -163,7 +163,7 @@ const Index = () => {
               {/* Wallet Connection */}
               <Button 
                 onClick={isConnected ? () => window.location.href = '/dashboard' : connect}
-                className="bg-gradient-primary hover:shadow-elegant font-medium"
+                className="bg-gradient-cosmic hover:shadow-elegant font-medium"
               >
                 <Wallet className="h-4 w-4 mr-2" />
                 {isConnected ? `${address?.slice(0, 6)}...${address?.slice(-4)}` : t('connectWallet')}
@@ -234,7 +234,7 @@ const Index = () => {
                     </div>
                     <div className="text-4xl font-bold text-foreground mb-2">{stat.value}</div>
                     <div className="text-muted-foreground text-sm mb-4 font-medium">{stat.label}</div>
-                    <Badge className="bg-amber-700/20 text-amber-800 text-xs font-medium">
+                    <Badge className="bg-teal/20 text-teal-dark text-xs font-medium">
                       {stat.growth}
                     </Badge>
                   </CardContent>
@@ -347,9 +347,9 @@ const Index = () => {
                               <div className="text-muted-foreground text-xs font-medium">{t('backers')}</div>
                             </div>
                             <div className="text-center">
-                              <div className="text-gold font-bold text-lg flex items-center justify-center gap-1">
-                                <Star className="h-4 w-4" />
-                                {person.rating}
+                               <div className="text-teal font-bold text-lg flex items-center justify-center gap-1">
+                                 <Star className="h-4 w-4" />
+                                 {person.rating}
                               </div>
                               <div className="text-muted-foreground text-xs font-medium">{t('rating')}</div>
                             </div>
@@ -422,9 +422,9 @@ const Index = () => {
           <Card className="bg-card/90 backdrop-blur-xl border-border shadow-elegant">
             <CardContent className="text-center py-16">
               <div className="max-w-3xl mx-auto">
-                <Badge className="mb-8 bg-gold/20 text-gold-muted border-gold/30 font-medium">
-                  <Network className="h-4 w-4 mr-2" />
-                  {t('join_revolution')}
+                 <Badge className="mb-8 bg-teal/20 text-teal-dark border-teal/30 font-medium">
+                   <Network className="h-4 w-4 mr-2" />
+                   {t('join_revolution')}
                 </Badge>
                 
                 <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">{t('readyTitle')}</h2>
