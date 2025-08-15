@@ -234,7 +234,7 @@ const Index = () => {
                     </div>
                     <div className="text-4xl font-bold text-foreground mb-2">{stat.value}</div>
                     <div className="text-muted-foreground text-sm mb-4 font-medium">{stat.label}</div>
-                    <Badge className="bg-teal/20 text-teal-dark text-xs font-medium">
+                    <Badge className="bg-crypto-green/20 text-crypto-green-dark text-xs font-medium">
                       {stat.growth}
                     </Badge>
                   </CardContent>
@@ -347,7 +347,7 @@ const Index = () => {
                               <div className="text-muted-foreground text-xs font-medium">{t('backers')}</div>
                             </div>
                             <div className="text-center">
-                               <div className="text-teal font-bold text-lg flex items-center justify-center gap-1">
+                               <div className="text-crypto-blue font-bold text-lg flex items-center justify-center gap-1">
                                  <Star className="h-4 w-4" />
                                  {person.rating}
                               </div>
@@ -422,10 +422,10 @@ const Index = () => {
           <Card className="bg-card/90 backdrop-blur-xl border-border shadow-elegant">
             <CardContent className="text-center py-16">
               <div className="max-w-3xl mx-auto">
-                 <Badge className="mb-8 bg-teal/20 text-teal-dark border-teal/30 font-medium">
+                 <Badge className="mb-8 bg-crypto-purple/20 text-crypto-purple-dark border-crypto-purple/30 font-medium">
                    <Network className="h-4 w-4 mr-2" />
                    {t('join_revolution')}
-                </Badge>
+                 </Badge>
                 
                 <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">{t('readyTitle')}</h2>
                 <p className="text-muted-foreground mb-10 text-lg leading-relaxed">

@@ -8,71 +8,71 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 240 15% 12%;     /* Deep cosmic gray */
-    --foreground: 300 20% 95%;     /* Soft stellar white */
+    --background: 240 15% 8%;      /* Deep crypto dark */
+    --foreground: 210 40% 95%;     /* Crisp white */
 
-    --card: 240 20% 16%;           /* Nebula card */
-    --card-foreground: 300 15% 92%;
+    --card: 240 20% 12%;           /* Dark card */
+    --card-foreground: 210 25% 92%;
 
-    --popover: 240 20% 16%;
-    --popover-foreground: 300 15% 92%;
+    --popover: 240 20% 12%;
+    --popover-foreground: 210 25% 92%;
 
-    --primary: 280 60% 65%;        /* Cosmic lilac */
-    --primary-foreground: 240 15% 12%;
+    --primary: 255 90% 60%;        /* Electric blue */
+    --primary-foreground: 240 15% 8%;
 
-    --secondary: 240 25% 20%;      /* Deep space secondary */
-    --secondary-foreground: 300 15% 90%;
+    --secondary: 240 25% 15%;      /* Dark secondary */
+    --secondary-foreground: 210 20% 90%;
 
-    --muted: 240 18% 18%;          /* Muted cosmos */
-    --muted-foreground: 280 15% 70%;
+    --muted: 240 18% 14%;          /* Subtle muted */
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 320 45% 55%;         /* Burgundy nebula */
-    --accent-foreground: 300 20% 95%;
+    --accent: 280 85% 65%;         /* Cyberpunk purple */
+    --accent-foreground: 240 15% 8%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 300 20% 95%;
+    --destructive-foreground: 210 25% 95%;
 
-    --border: 240 20% 25%;         /* Stellar border */
-    --input: 240 18% 18%;
-    --ring: 280 60% 65%;           /* Lilac focus ring */
+    --border: 240 20% 20%;         /* Subtle border */
+    --input: 240 18% 14%;
+    --ring: 255 90% 60%;           /* Electric blue focus */
 
     --radius: 0.75rem;
     
-    /* Cosmic Universe Palette */
-    --graphite: 240 15% 12%;       /* Deep space graphite */
-    --graphite-light: 240 20% 25%; /* Lighter graphite */
-    --graphite-dark: 240 25% 8%;   /* Deepest space */
+    /* Crypto Theme Palette */
+    --crypto-blue: 255 90% 60%;    /* Electric blue */
+    --crypto-blue-light: 255 75% 75%;
+    --crypto-blue-dark: 255 100% 45%;
     
-    --cosmic-lilac: 30 75% 35%;   /* Rich brown cosmic */
-    --cosmic-lilac-light: 30 55% 55%; /* Light brown */
-    --cosmic-lilac-dark: 25 85% 25%;  /* Deep brown */
+    --crypto-purple: 280 85% 65%;  /* Cyberpunk purple */
+    --crypto-purple-light: 280 70% 80%;
+    --crypto-purple-dark: 280 100% 50%;
     
-    --burgundy: 30 75% 35%;       /* Rich brown */
-    --burgundy-light: 35 45% 65%; /* Light brown */
-    --burgundy-muted: 30 35% 45%; /* Muted brown */
+    --crypto-green: 160 84% 55%;   /* Neon green */
+    --crypto-green-light: 160 65% 70%;
+    --crypto-green-dark: 160 100% 40%;
     
-    --stellar-silver: 280 15% 80%; /* Cosmic silver */
-    --stellar-silver-light: 300 20% 95%; /* Bright stellar */
-    --stellar-silver-dark: 260 20% 60%;  /* Dark stellar */
+    --crypto-dark: 240 15% 8%;     /* Deep space */
+    --crypto-dark-light: 240 20% 15%;
+    --crypto-dark-medium: 240 25% 12%;
     
-    /* Infinite Universe Gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(var(--cosmic-lilac)), hsl(var(--burgundy)), hsl(25 65% 45%));
-    --gradient-nebula: linear-gradient(135deg, hsl(var(--graphite)), hsl(var(--graphite-light)));
-    --gradient-infinity: radial-gradient(ellipse at center, hsl(var(--cosmic-lilac) / 0.4), hsl(var(--graphite)));
+    /* Modern Crypto Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--crypto-blue)), hsl(var(--crypto-purple)));
+    --gradient-nebula: linear-gradient(135deg, hsl(var(--crypto-dark)), hsl(var(--crypto-dark-light)));
+    --gradient-infinity: radial-gradient(ellipse at center, hsl(var(--crypto-purple) / 0.3), hsl(var(--crypto-dark)));
     
-    /* Ethereal Shadows */
-    --shadow-soft: 0 4px 16px hsla(280, 60%, 25%, 0.2);
-    --shadow-elegant: 0 12px 40px hsla(280, 60%, 15%, 0.3);
-    --shadow-cosmic: 0 0 32px hsl(var(--cosmic-lilac) / 0.4);
+    /* Neon Shadows */
+    --shadow-soft: 0 4px 16px hsla(255, 90%, 60%, 0.1);
+    --shadow-elegant: 0 12px 40px hsla(255, 90%, 60%, 0.2);
+    --shadow-cosmic: 0 0 32px hsl(var(--crypto-blue) / 0.4);
 
-    --sidebar-background: 0 0% 12%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 0 0% 8%;
-    --sidebar-accent: 0 0% 16%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-background: 240 15% 8%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 255 90% 60%;
+    --sidebar-primary-foreground: 240 15% 8%;
+    --sidebar-accent: 240 20% 12%;
+    --sidebar-accent-foreground: 210 40% 95%;
+    --sidebar-border: 240 20% 20%;
+    --sidebar-ring: 255 90% 60%;
   }
 
   .dark {
@@ -104,22 +104,22 @@ All colors MUST be HSL.
     --input: 0 0% 20%;
     --ring: 213 94% 68%;       /* Apple blue focus */
     
-    /* Dark Apple-Inspired Tokens */
-    --sage-green: 0 0% 71%;    /* Light gray for dark mode */
-    --sage-green-light: 0 0% 45%;  /* Medium gray */
-    --sage-green-dark: 0 0% 13%;   /* Dark gray */
+    /* Crypto Theme Dark Tokens */
+    --crypto-blue: 255 90% 60%;    /* Electric blue */
+    --crypto-blue-light: 255 75% 75%;
+    --crypto-blue-dark: 255 100% 45%;
     
-    --teal: 180 40% 55%;       /* Cosmic teal */
-    --teal-light: 180 35% 75%; /* Light cosmic teal */
-    --teal-dark: 180 45% 35%; /* Deep cosmic teal */
+    --crypto-purple: 280 85% 65%;  /* Cyberpunk purple */
+    --crypto-purple-light: 280 70% 80%;
+    --crypto-purple-dark: 280 100% 50%;
     
-    --warm-gray: 0 0% 71%;     /* Light text */
-    --warm-gray-light: 0 0% 16%;   /* Dark background */
-    --warm-gray-dark: 0 0% 9%;     /* Near black */
+    --crypto-green: 160 84% 55%;   /* Neon green */
+    --crypto-green-light: 160 65% 70%;
+    --crypto-green-dark: 160 100% 40%;
     
-    --gold: 32 95% 54%;        /* Brighter orange */
-    --gold-light: 32 95% 74%;  /* Light orange */
-    --gold-muted: 0 0% 45%;    /* Medium gray */
+    --crypto-silver: 220 15% 75%; /* Tech silver */
+    --crypto-silver-light: 220 20% 85%;
+    --crypto-silver-dark: 220 25% 55%;
     
     /* Dark Clean Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--warm-gray-dark)), hsl(var(--sage-green-dark)));

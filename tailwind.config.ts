@@ -62,26 +62,26 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// AtriaFi Custom Colors
-				'cosmic-lilac': {
-					DEFAULT: 'hsl(var(--cosmic-lilac))',
-					light: 'hsl(var(--cosmic-lilac-light))',
-					dark: 'hsl(var(--cosmic-lilac-dark))'
+				// Crypto Theme Colors
+				'crypto-blue': {
+					DEFAULT: 'hsl(var(--crypto-blue))',
+					light: 'hsl(var(--crypto-blue-light))',
+					dark: 'hsl(var(--crypto-blue-dark))'
 				},
-				'burgundy': {
-					DEFAULT: 'hsl(var(--burgundy))',
-					light: 'hsl(var(--burgundy-light))',
-					muted: 'hsl(var(--burgundy-muted))'
+				'crypto-purple': {
+					DEFAULT: 'hsl(var(--crypto-purple))',
+					light: 'hsl(var(--crypto-purple-light))',
+					dark: 'hsl(var(--crypto-purple-dark))'
 				},
-				'graphite': {
-					DEFAULT: 'hsl(var(--graphite))',
-					light: 'hsl(var(--graphite-light))',
-					dark: 'hsl(var(--graphite-dark))'
+				'crypto-green': {
+					DEFAULT: 'hsl(var(--crypto-green))',
+					light: 'hsl(var(--crypto-green-light))',
+					dark: 'hsl(var(--crypto-green-dark))'
 				},
-				'stellar-silver': {
-					DEFAULT: 'hsl(var(--stellar-silver))',
-					light: 'hsl(var(--stellar-silver-light))',
-					dark: 'hsl(var(--stellar-silver-dark))'
+				'crypto-silver': {
+					DEFAULT: 'hsl(var(--crypto-silver))',
+					light: 'hsl(var(--crypto-silver-light))',
+					dark: 'hsl(var(--crypto-silver-dark))'
 				}
 			},
 			backgroundImage: {
