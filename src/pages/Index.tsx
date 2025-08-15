@@ -127,7 +127,6 @@ const Index = () => {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-3">
-                <img src={atriafiLogo} alt="AtriaFi" className="w-10 h-10" />
                 <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                   {t('title')}
                 </h1>
@@ -235,7 +234,7 @@ const Index = () => {
                     </div>
                     <div className="text-4xl font-bold text-foreground mb-2">{stat.value}</div>
                     <div className="text-muted-foreground text-sm mb-4 font-medium">{stat.label}</div>
-                    <Badge className="bg-burgundy/20 text-burgundy text-xs font-medium">
+                    <Badge className="bg-amber-700/20 text-amber-800 text-xs font-medium">
                       {stat.growth}
                     </Badge>
                   </CardContent>
