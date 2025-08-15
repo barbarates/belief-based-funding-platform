@@ -463,7 +463,6 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <img src={atriafiLogo} alt="AtriaFi" className="w-8 h-8" />
                 <h3 className="text-xl font-bold text-foreground">{t('title')}</h3>
               </div>
               <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">

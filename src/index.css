@@ -43,22 +43,22 @@ All colors MUST be HSL.
     --graphite-light: 240 20% 25%; /* Lighter graphite */
     --graphite-dark: 240 25% 8%;   /* Deepest space */
     
-    --cosmic-lilac: 340 65% 35%;   /* Burgundy cosmic */
-    --cosmic-lilac-light: 340 55% 55%; /* Light burgundy */
-    --cosmic-lilac-dark: 340 75% 25%;  /* Deep burgundy */
+    --cosmic-lilac: 30 75% 35%;   /* Rich brown cosmic */
+    --cosmic-lilac-light: 30 55% 55%; /* Light brown */
+    --cosmic-lilac-dark: 25 85% 25%;  /* Deep brown */
     
-    --burgundy: 340 75% 25%;       /* Deep burgundy */
-    --burgundy-light: 320 35% 70%; /* Light burgundy */
-    --burgundy-muted: 320 25% 35%; /* Muted burgundy */
+    --burgundy: 30 75% 35%;       /* Rich brown */
+    --burgundy-light: 35 45% 65%; /* Light brown */
+    --burgundy-muted: 30 35% 45%; /* Muted brown */
     
     --stellar-silver: 280 15% 80%; /* Cosmic silver */
     --stellar-silver-light: 300 20% 95%; /* Bright stellar */
     --stellar-silver-dark: 260 20% 60%;  /* Dark stellar */
     
     /* Infinite Universe Gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(var(--cosmic-lilac)), hsl(var(--burgundy)));
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--cosmic-lilac)), hsl(var(--burgundy)), hsl(25 65% 45%));
     --gradient-nebula: linear-gradient(135deg, hsl(var(--graphite)), hsl(var(--graphite-light)));
-    --gradient-infinity: radial-gradient(ellipse at center, hsl(var(--cosmic-lilac) / 0.3), hsl(var(--graphite)));
+    --gradient-infinity: radial-gradient(ellipse at center, hsl(var(--cosmic-lilac) / 0.4), hsl(var(--graphite)));
     
     /* Ethereal Shadows */
     --shadow-soft: 0 4px 16px hsla(280, 60%, 25%, 0.2);
