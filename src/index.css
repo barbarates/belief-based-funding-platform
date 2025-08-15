@@ -109,9 +109,9 @@ All colors MUST be HSL.
     --sage-green-light: 0 0% 45%;  /* Medium gray */
     --sage-green-dark: 0 0% 13%;   /* Dark gray */
     
-    --teal: 213 94% 68%;       /* Apple blue */
-    --teal-light: 213 78% 84%; /* Light blue */
-    --teal-dark: 213 100% 40%; /* Deeper blue */
+    --teal: 180 40% 55%;       /* Cosmic teal */
+    --teal-light: 180 35% 75%; /* Light cosmic teal */
+    --teal-dark: 180 45% 35%; /* Deep cosmic teal */
     
     --warm-gray: 0 0% 71%;     /* Light text */
     --warm-gray-light: 0 0% 16%;   /* Dark background */
