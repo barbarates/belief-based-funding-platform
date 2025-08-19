@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 240 20% 12%;
     --popover-foreground: 210 25% 92%;
 
-    --primary: 255 90% 60%;        /* Electric blue */
+    --primary: 220 70% 50%;        /* Softer blue */
     --primary-foreground: 240 15% 8%;
 
     --secondary: 240 25% 15%;      /* Dark secondary */
@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 240 18% 14%;          /* Subtle muted */
     --muted-foreground: 220 15% 65%;
 
-    --accent: 280 85% 65%;         /* Cyberpunk purple */
+    --accent: 260 60% 55%;         /* Muted purple */
     --accent-foreground: 240 15% 8%;
 
     --destructive: 0 84% 60%;
@@ -34,22 +34,22 @@ All colors MUST be HSL.
 
     --border: 240 20% 20%;         /* Subtle border */
     --input: 240 18% 14%;
-    --ring: 255 90% 60%;           /* Electric blue focus */
+    --ring: 220 70% 50%;           /* Softer blue focus */
 
     --radius: 0.75rem;
     
     /* Crypto Theme Palette */
-    --crypto-blue: 255 90% 60%;    /* Electric blue */
-    --crypto-blue-light: 255 75% 75%;
-    --crypto-blue-dark: 255 100% 45%;
+    --crypto-blue: 220 70% 50%;    /* Softer blue */
+    --crypto-blue-light: 220 60% 65%;
+    --crypto-blue-dark: 220 80% 35%;
     
-    --crypto-purple: 280 85% 65%;  /* Cyberpunk purple */
-    --crypto-purple-light: 280 70% 80%;
-    --crypto-purple-dark: 280 100% 50%;
+    --crypto-purple: 260 60% 55%;  /* Muted purple */
+    --crypto-purple-light: 260 50% 70%;
+    --crypto-purple-dark: 260 70% 40%;
     
-    --crypto-green: 160 84% 55%;   /* Neon green */
-    --crypto-green-light: 160 65% 70%;
-    --crypto-green-dark: 160 100% 40%;
+    --crypto-green: 150 60% 45%;   /* Calmer green */
+    --crypto-green-light: 150 50% 60%;
+    --crypto-green-dark: 150 70% 30%;
     
     --crypto-dark: 240 15% 8%;     /* Deep space */
     --crypto-dark-light: 240 20% 15%;

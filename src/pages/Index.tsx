@@ -188,7 +188,7 @@ const Index = () => {
             <div className="mb-16">
               <h1 className="text-6xl lg:text-8xl xl:text-9xl font-bold mb-8 leading-tight">
                 <span className="bg-gradient-cosmic bg-clip-text text-transparent">
-                  AtriaFi
+                  roundsy
                 </span>
               </h1>
               
