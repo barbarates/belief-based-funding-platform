@@ -62,21 +62,21 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Crypto Theme Colors
-				'crypto-blue': {
-					DEFAULT: 'hsl(var(--crypto-blue))',
-					light: 'hsl(var(--crypto-blue-light))',
-					dark: 'hsl(var(--crypto-blue-dark))'
+				// Bordeaux Theme Colors
+				'crypto-bordeaux': {
+					DEFAULT: 'hsl(var(--crypto-bordeaux))',
+					light: 'hsl(var(--crypto-bordeaux-light))',
+					dark: 'hsl(var(--crypto-bordeaux-dark))'
 				},
-				'crypto-gray': {
-					DEFAULT: 'hsl(var(--crypto-gray))',
-					light: 'hsl(var(--crypto-gray-light))',
-					dark: 'hsl(var(--crypto-gray-dark))'
+				'crypto-wine': {
+					DEFAULT: 'hsl(var(--crypto-wine))',
+					light: 'hsl(var(--crypto-wine-light))',
+					dark: 'hsl(var(--crypto-wine-dark))'
 				},
-				'crypto-green': {
-					DEFAULT: 'hsl(var(--crypto-green))',
-					light: 'hsl(var(--crypto-green-light))',
-					dark: 'hsl(var(--crypto-green-dark))'
+				'crypto-rose': {
+					DEFAULT: 'hsl(var(--crypto-rose))',
+					light: 'hsl(var(--crypto-rose-light))',
+					dark: 'hsl(var(--crypto-rose-dark))'
 				}
 			},
 			backgroundImage: {
