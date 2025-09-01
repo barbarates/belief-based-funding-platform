@@ -90,25 +90,25 @@ const Index = () => {
       icon: <Shield className="h-6 w-6" />,
       title: t('smart_contract_escrow'),
       description: t('smart_contract_description'),
-      color: "from-sage-green to-teal"
+      color: "from-crypto-green to-crypto-blue"
     },
     {
       icon: <Target className="h-6 w-6" />,
       title: t('milestone_based_release'),
       description: t('milestone_description'),
-      color: "from-teal to-sage-green"
+      color: "from-crypto-blue to-crypto-green"
     },
     {
       icon: <Users className="h-6 w-6" />,
       title: t('community_verification'), 
       description: t('community_description'),
-      color: "from-sage-green-light to-teal-light"
+      color: "from-crypto-green-light to-crypto-blue-light"
     },
     {
       icon: <TrendingUp className="h-6 w-6" />,
       title: t('performance_tracking'),
       description: t('performance_description'),
-      color: "from-teal-light to-sage-green"
+      color: "from-crypto-blue-light to-crypto-green"
     }
   ];
 
@@ -188,15 +188,15 @@ const Index = () => {
             <div className="mb-16">
               <h1 className="text-6xl lg:text-8xl xl:text-9xl font-bold mb-8 leading-tight">
                 <span className="bg-gradient-cosmic bg-clip-text text-transparent">
-                  roundsy
+                  Roundsy
                 </span>
               </h1>
               
-              <p className="text-2xl lg:text-3xl text-stellar-silver/90 mb-8 max-w-5xl mx-auto leading-relaxed font-medium">
+              <p className="text-2xl lg:text-3xl text-muted-foreground/90 mb-8 max-w-5xl mx-auto leading-relaxed font-medium">
                 {t("subtitle")}
               </p>
               
-              <Badge className="mb-12 bg-cosmic-lilac/20 text-cosmic-lilac border-cosmic-lilac/30 font-medium text-lg px-8 py-3">
+              <Badge className="mb-12 bg-crypto-blue/20 text-crypto-blue-dark border-crypto-blue/30 font-medium text-lg px-8 py-3">
                 <Sparkles className="h-5 w-5 mr-2" />
                 {t("platform_badge")}
               </Badge>
@@ -216,7 +216,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-cosmic-lilac text-cosmic-lilac hover:bg-cosmic-lilac/10 text-xl px-16 py-8 font-medium rounded-2xl transform hover:scale-105 transition-all duration-300"
+                className="border-2 border-crypto-blue text-crypto-blue hover:bg-crypto-blue/10 text-xl px-16 py-8 font-medium rounded-2xl transform hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = "/profile/apply"}
               >
                 <Award className="h-6 w-6 mr-3" />
@@ -229,7 +229,7 @@ const Index = () => {
               {stats.map((stat, idx) => (
                 <Card key={idx} className="bg-card/60 backdrop-blur-xl border-border/50 hover:shadow-cosmic transition-all duration-500 transform hover:scale-105">
                   <CardContent className="pt-8 pb-8 text-center">
-                    <div className="flex justify-center mb-4 text-cosmic-lilac">
+                    <div className="flex justify-center mb-4 text-crypto-blue">
                       {stat.icon}
                     </div>
                     <div className="text-4xl font-bold text-foreground mb-2">{stat.value}</div>
@@ -246,8 +246,8 @@ const Index = () => {
         
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-cosmic-lilac rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-cosmic-lilac rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-crypto-blue rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-crypto-blue rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
@@ -256,7 +256,7 @@ const Index = () => {
       <section id="safety" className="py-24 bg-background/50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge className="mb-6 bg-teal/20 text-teal-dark border-teal/30 font-medium">
+            <Badge className="mb-6 bg-crypto-green/20 text-crypto-green-dark border-crypto-green/30 font-medium">
               <Shield className="h-4 w-4 mr-2" />
               {t('security_first')}
             </Badge>
@@ -268,7 +268,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {safetyFeatures.map((feature, idx) => (
-              <Card key={idx} className="group bg-card/80 backdrop-blur-sm border-border hover:border-sage-green/50 hover:shadow-soft transition-all duration-300">
+              <Card key={idx} className="group bg-card/80 backdrop-blur-sm border-border hover:border-crypto-green/50 hover:shadow-soft transition-all duration-300">
                 <CardContent className="pt-8 text-center">
                   <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <div className="text-white">
@@ -288,7 +288,7 @@ const Index = () => {
       <section id="opportunities" className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge className="mb-6 bg-sage-green/20 text-sage-green-dark border-sage-green/30 font-medium">
+            <Badge className="mb-6 bg-crypto-green/20 text-crypto-green-dark border-crypto-green/30 font-medium">
               <Repeat className="h-4 w-4 mr-2" />
               {t('trending_now')}
             </Badge>
@@ -300,7 +300,7 @@ const Index = () => {
           
           <div className="space-y-8">
             {featuredPeople.map((person) => (
-              <Card key={person.id} className="group bg-card/80 backdrop-blur-sm border-border hover:border-sage-green/50 hover:shadow-elegant transition-all duration-300">
+              <Card key={person.id} className="group bg-card/80 backdrop-blur-sm border-border hover:border-crypto-green/50 hover:shadow-elegant transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex flex-col lg:flex-row gap-8">
                     {/* Profile Section */}
@@ -309,18 +309,18 @@ const Index = () => {
                         <div className="relative">
                           <span className="text-5xl">{person.image}</span>
                           {person.verified && (
-                            <div className="absolute -bottom-1 -right-1 bg-teal rounded-full p-1">
+                            <div className="absolute -bottom-1 -right-1 bg-crypto-green rounded-full p-1">
                               <CheckCircle className="h-4 w-4 text-white" />
                             </div>
                           )}
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-foreground mb-1">{person.name}</h3>
-                          <Badge variant="secondary" className="bg-sage-green/20 text-sage-green-dark mb-2">
+                          <Badge variant="secondary" className="bg-crypto-green/20 text-crypto-green-dark mb-2">
                             {person.category}
                           </Badge>
                           <div>
-                            <Badge className="bg-teal/20 text-teal-dark">
+                            <Badge className="bg-crypto-blue/20 text-crypto-blue-dark">
                               {person.growth}
                             </Badge>
                           </div>
@@ -343,7 +343,7 @@ const Index = () => {
                           
                           <div className="grid grid-cols-3 gap-4 mt-6">
                             <div className="text-center">
-                              <div className="text-sage-green font-bold text-lg">{person.backers}</div>
+                              <div className="text-crypto-green font-bold text-lg">{person.backers}</div>
                               <div className="text-muted-foreground text-xs font-medium">{t('backers')}</div>
                             </div>
                             <div className="text-center">
@@ -354,7 +354,7 @@ const Index = () => {
                               <div className="text-muted-foreground text-xs font-medium">{t('rating')}</div>
                             </div>
                             <div className="text-center">
-                              <div className="text-teal font-bold text-lg">{person.estimatedReturn}</div>
+                              <div className="text-crypto-blue font-bold text-lg">{person.estimatedReturn}</div>
                               <div className="text-muted-foreground text-xs font-medium">{t('expected_return')}</div>
                             </div>
                           </div>
@@ -366,7 +366,7 @@ const Index = () => {
                               <Clock className="h-4 w-4" />
                               {t('timeframe')}:
                             </span>
-                            <span className="text-teal font-semibold">{person.timeframe}</span>
+                            <span className="text-crypto-blue font-semibold">{person.timeframe}</span>
                           </div>
                           
                           <div>
@@ -374,7 +374,7 @@ const Index = () => {
                             <div className="space-y-2">
                               {person.milestones.slice(0, 3).map((milestone, idx) => (
                                 <div key={idx} className="flex items-center gap-3 text-sm text-foreground">
-                                  <div className="w-2 h-2 bg-sage-green rounded-full"></div>
+                                  <div className="w-2 h-2 bg-crypto-green rounded-full"></div>
                                   {milestone}
                                 </div>
                               ))}
@@ -406,7 +406,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-sage-green text-sage-green hover:bg-sage-green/10 font-medium"
+              className="border-2 border-crypto-green text-crypto-green hover:bg-crypto-green/10 font-medium"
               onClick={() => window.location.href = '/investments'}
             >
               {t('view_all_opportunities')}
@@ -422,7 +422,7 @@ const Index = () => {
           <Card className="bg-card/90 backdrop-blur-xl border-border shadow-elegant">
             <CardContent className="text-center py-16">
               <div className="max-w-3xl mx-auto">
-                 <Badge className="mb-8 bg-crypto-purple/20 text-crypto-purple-dark border-crypto-purple/30 font-medium">
+                 <Badge className="mb-8 bg-crypto-gray/20 text-crypto-gray-dark border-crypto-gray/30 font-medium">
                    <Network className="h-4 w-4 mr-2" />
                    {t('join_revolution')}
                  </Badge>
@@ -444,7 +444,7 @@ const Index = () => {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-2 border-sage-green text-sage-green hover:bg-sage-green/10 text-lg px-8 font-medium"
+                    className="border-2 border-crypto-green text-crypto-green hover:bg-crypto-green/10 text-lg px-8 font-medium"
                     onClick={() => window.location.href = '/dashboard'}
                   >
                     <Users className="h-5 w-5 mr-2" />

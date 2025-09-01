@@ -68,20 +68,15 @@ export default {
 					light: 'hsl(var(--crypto-blue-light))',
 					dark: 'hsl(var(--crypto-blue-dark))'
 				},
-				'crypto-purple': {
-					DEFAULT: 'hsl(var(--crypto-purple))',
-					light: 'hsl(var(--crypto-purple-light))',
-					dark: 'hsl(var(--crypto-purple-dark))'
+				'crypto-gray': {
+					DEFAULT: 'hsl(var(--crypto-gray))',
+					light: 'hsl(var(--crypto-gray-light))',
+					dark: 'hsl(var(--crypto-gray-dark))'
 				},
 				'crypto-green': {
 					DEFAULT: 'hsl(var(--crypto-green))',
 					light: 'hsl(var(--crypto-green-light))',
 					dark: 'hsl(var(--crypto-green-dark))'
-				},
-				'crypto-silver': {
-					DEFAULT: 'hsl(var(--crypto-silver))',
-					light: 'hsl(var(--crypto-silver-light))',
-					dark: 'hsl(var(--crypto-silver-dark))'
 				}
 			},
 			backgroundImage: {

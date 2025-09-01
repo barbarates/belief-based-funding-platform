@@ -43,9 +43,9 @@ All colors MUST be HSL.
     --crypto-blue-light: 220 60% 65%;
     --crypto-blue-dark: 220 80% 35%;
     
-    --crypto-purple: 260 60% 55%;  /* Muted purple */
-    --crypto-purple-light: 260 50% 70%;
-    --crypto-purple-dark: 260 70% 40%;
+    --crypto-gray: 240 15% 25%;    /* Neutral gray instead of purple */
+    --crypto-gray-light: 240 12% 35%;
+    --crypto-gray-dark: 240 18% 15%;
     
     --crypto-green: 150 60% 45%;   /* Calmer green */
     --crypto-green-light: 150 50% 60%;
@@ -56,13 +56,13 @@ All colors MUST be HSL.
     --crypto-dark-medium: 240 25% 12%;
     
     /* Modern Crypto Gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(var(--crypto-blue)), hsl(var(--crypto-purple)));
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--crypto-blue)), hsl(var(--crypto-gray)));
     --gradient-nebula: linear-gradient(135deg, hsl(var(--crypto-dark)), hsl(var(--crypto-dark-light)));
-    --gradient-infinity: radial-gradient(ellipse at center, hsl(var(--crypto-purple) / 0.3), hsl(var(--crypto-dark)));
+    --gradient-infinity: radial-gradient(ellipse at center, hsl(var(--crypto-gray) / 0.3), hsl(var(--crypto-dark)));
     
     /* Neon Shadows */
-    --shadow-soft: 0 4px 16px hsla(255, 90%, 60%, 0.1);
-    --shadow-elegant: 0 12px 40px hsla(255, 90%, 60%, 0.2);
+    --shadow-soft: 0 4px 16px hsl(var(--crypto-blue) / 0.1);
+    --shadow-elegant: 0 12px 40px hsl(var(--crypto-blue) / 0.2);
     --shadow-cosmic: 0 0 32px hsl(var(--crypto-blue) / 0.4);
 
     --sidebar-background: 240 15% 8%;
@@ -105,31 +105,27 @@ All colors MUST be HSL.
     --ring: 213 94% 68%;       /* Apple blue focus */
     
     /* Crypto Theme Dark Tokens */
-    --crypto-blue: 255 90% 60%;    /* Electric blue */
-    --crypto-blue-light: 255 75% 75%;
-    --crypto-blue-dark: 255 100% 45%;
+    --crypto-blue: 220 70% 50%;    /* Softer blue for dark mode */
+    --crypto-blue-light: 220 60% 65%;
+    --crypto-blue-dark: 220 80% 35%;
     
-    --crypto-purple: 280 85% 65%;  /* Cyberpunk purple */
-    --crypto-purple-light: 280 70% 80%;
-    --crypto-purple-dark: 280 100% 50%;
+    --crypto-gray: 240 15% 25%;    /* Neutral gray instead of purple */
+    --crypto-gray-light: 240 12% 35%;
+    --crypto-gray-dark: 240 18% 15%;
     
-    --crypto-green: 160 84% 55%;   /* Neon green */
-    --crypto-green-light: 160 65% 70%;
-    --crypto-green-dark: 160 100% 40%;
-    
-    --crypto-silver: 220 15% 75%; /* Tech silver */
-    --crypto-silver-light: 220 20% 85%;
-    --crypto-silver-dark: 220 25% 55%;
+    --crypto-green: 150 60% 45%;   /* Calmer green for dark mode */
+    --crypto-green-light: 150 50% 60%;
+    --crypto-green-dark: 150 70% 30%;
     
     /* Dark Clean Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--warm-gray-dark)), hsl(var(--sage-green-dark)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--warm-gray-light)), hsl(var(--background)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--warm-gray-light)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--crypto-blue)), hsl(var(--crypto-gray)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--crypto-gray-light)), hsl(var(--background)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--crypto-gray-light)));
     
     /* Dark Subtle Shadows */
     --shadow-soft: 0 2px 8px hsla(0, 0%, 0%, 0.2);
     --shadow-elegant: 0 8px 24px hsla(0, 0%, 0%, 0.3);
-    --shadow-glow: 0 0 20px hsl(var(--teal) / 0.2);
+    --shadow-glow: 0 0 20px hsl(var(--crypto-blue) / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
