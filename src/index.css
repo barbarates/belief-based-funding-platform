@@ -8,62 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 240 15% 8%;      /* Deep crypto dark */
-    --foreground: 210 40% 95%;     /* Crisp white */
+    --background: 240 8% 6%;        /* Deep elegant dark */
+    --foreground: 210 20% 85%;      /* Elegant silver-gray text */
 
-    --card: 240 20% 12%;           /* Dark card */
-    --card-foreground: 210 25% 92%;
+    --card: 240 12% 8%;             /* Sophisticated card */
+    --card-foreground: 210 18% 80%;
 
-    --popover: 240 20% 12%;
-    --popover-foreground: 210 25% 92%;
+    --popover: 240 12% 8%;
+    --popover-foreground: 210 18% 80%;
 
-    --primary: 220 70% 50%;        /* Softer blue */
-    --primary-foreground: 240 15% 8%;
+    --primary: 210 15% 65%;         /* Elegant silver */
+    --primary-foreground: 240 8% 8%;
 
-    --secondary: 240 25% 15%;      /* Dark secondary */
-    --secondary-foreground: 210 20% 90%;
+    --secondary: 240 10% 12%;       /* Refined secondary */
+    --secondary-foreground: 210 15% 75%;
 
-    --muted: 240 18% 14%;          /* Subtle muted */
-    --muted-foreground: 220 15% 65%;
+    --muted: 240 8% 10%;            /* Subtle muted */
+    --muted-foreground: 210 12% 55%;
 
-    --accent: 260 60% 55%;         /* Muted purple */
-    --accent-foreground: 240 15% 8%;
+    --accent: 210 20% 70%;          /* Soft silver accent */
+    --accent-foreground: 240 8% 8%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 25% 95%;
+    --destructive-foreground: 210 20% 85%;
 
-    --border: 240 20% 20%;         /* Subtle border */
-    --input: 240 18% 14%;
-    --ring: 220 70% 50%;           /* Softer blue focus */
+    --border: 240 15% 18%;          /* Elegant border */
+    --input: 240 10% 10%;
+    --ring: 210 15% 65%;            /* Silver focus ring */
 
     --radius: 0.75rem;
     
-    /* Crypto Theme Palette */
-    --crypto-bordeaux: 345 85% 35%;    /* Rich bordeaux */
-    --crypto-bordeaux-light: 345 70% 50%;
-    --crypto-bordeaux-dark: 345 95% 25%;
+    /* Elegant Silver Theme Palette */
+    --elegant-silver: 210 15% 65%;      /* Main silver */
+    --elegant-silver-light: 210 20% 75%;
+    --elegant-silver-dark: 210 12% 50%;
     
-    --crypto-wine: 350 80% 30%;    /* Deep wine */
-    --crypto-wine-light: 350 65% 45%;
-    --crypto-wine-dark: 350 90% 20%;
+    --elegant-platinum: 220 10% 70%;    /* Platinum tone */
+    --elegant-platinum-light: 220 15% 80%;
+    --elegant-platinum-dark: 220 8% 55%;
     
-    --crypto-rose: 340 60% 45%;   /* Elegant rose */
-    --crypto-rose-light: 340 50% 60%;
-    --crypto-rose-dark: 340 70% 30%;
+    --elegant-steel: 215 12% 60%;       /* Steel gray */
+    --elegant-steel-light: 215 18% 70%;
+    --elegant-steel-dark: 215 10% 45%;
     
-    --crypto-dark: 240 15% 8%;     /* Deep space */
-    --crypto-dark-light: 240 20% 15%;
-    --crypto-dark-medium: 240 25% 12%;
+    --elegant-dark: 240 8% 6%;          /* Deep elegant */
+    --elegant-dark-light: 240 12% 12%;
+    --elegant-dark-medium: 240 10% 8%;
     
-    /* Modern Bordeaux Gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(var(--crypto-bordeaux)), hsl(var(--crypto-wine)));
-    --gradient-nebula: linear-gradient(135deg, hsl(var(--crypto-dark)), hsl(var(--crypto-dark-light)));
-    --gradient-infinity: radial-gradient(ellipse at center, hsl(var(--crypto-bordeaux) / 0.3), hsl(var(--crypto-dark)));
+    /* Elegant Silver Gradients */
+    --gradient-silver: linear-gradient(135deg, hsl(var(--elegant-silver)), hsl(var(--elegant-platinum)));
+    --gradient-platinum: linear-gradient(135deg, hsl(var(--elegant-dark)), hsl(var(--elegant-dark-light)));
+    --gradient-elegant: radial-gradient(ellipse at center, hsl(var(--elegant-silver) / 0.2), hsl(var(--elegant-dark)));
     
-    /* Bordeaux Shadows */
-    --shadow-soft: 0 4px 16px hsl(var(--crypto-bordeaux) / 0.1);
-    --shadow-elegant: 0 12px 40px hsl(var(--crypto-bordeaux) / 0.2);
-    --shadow-cosmic: 0 0 32px hsl(var(--crypto-bordeaux) / 0.4);
+    /* Elegant Shadows */
+    --shadow-soft: 0 4px 16px hsl(var(--elegant-silver) / 0.08);
+    --shadow-elegant: 0 12px 40px hsl(var(--elegant-silver) / 0.15);
+    --shadow-platinum: 0 0 32px hsl(var(--elegant-silver) / 0.25);
 
     --sidebar-background: 240 15% 8%;
     --sidebar-foreground: 210 40% 95%;
@@ -76,56 +76,56 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 9%;     /* Near black */
-    --foreground: 0 0% 98%;    /* Near white */
+    --background: 240 8% 6%;        /* Deep elegant dark */
+    --foreground: 210 20% 85%;      /* Elegant silver-gray text */
 
-    --card: 0 0% 13%;          /* Dark gray card */
-    --card-foreground: 0 0% 98%;
+    --card: 240 12% 8%;             /* Sophisticated card */
+    --card-foreground: 210 18% 80%;
 
-    --popover: 0 0% 13%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 12% 8%;
+    --popover-foreground: 210 18% 80%;
 
-    --primary: 213 94% 68%;    /* Same Apple blue */
-    --primary-foreground: 0 0% 9%;
+    --primary: 210 15% 65%;         /* Elegant silver */
+    --primary-foreground: 240 8% 8%;
 
-    --secondary: 0 0% 16%;     /* Dark secondary */
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 240 10% 12%;       /* Refined secondary */
+    --secondary-foreground: 210 15% 75%;
 
-    --muted: 0 0% 16%;         /* Dark muted */
-    --muted-foreground: 0 0% 65%;
+    --muted: 240 8% 10%;            /* Subtle muted */
+    --muted-foreground: 210 12% 55%;
 
-    --accent: 213 94% 68%;     /* Apple blue */
-    --accent-foreground: 0 0% 9%;
+    --accent: 210 20% 70%;          /* Soft silver accent */
+    --accent-foreground: 240 8% 8%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 20% 85%;
 
-    --border: 0 0% 20%;        /* Dark border */
-    --input: 0 0% 20%;
-    --ring: 213 94% 68%;       /* Apple blue focus */
+    --border: 240 15% 18%;          /* Elegant border */
+    --input: 240 10% 10%;
+    --ring: 210 15% 65%;            /* Silver focus ring */
     
-    /* Crypto Theme Dark Tokens */
-    --crypto-bordeaux: 345 85% 35%;    /* Rich bordeaux for dark mode */
-    --crypto-bordeaux-light: 345 70% 50%;
-    --crypto-bordeaux-dark: 345 95% 25%;
+    /* Elegant Silver Theme Tokens */
+    --elegant-silver: 210 15% 65%;      /* Main silver */
+    --elegant-silver-light: 210 20% 75%;
+    --elegant-silver-dark: 210 12% 50%;
     
-    --crypto-wine: 350 80% 30%;    /* Deep wine for dark mode */
-    --crypto-wine-light: 350 65% 45%;
-    --crypto-wine-dark: 350 90% 20%;
+    --elegant-platinum: 220 10% 70%;    /* Platinum tone */
+    --elegant-platinum-light: 220 15% 80%;
+    --elegant-platinum-dark: 220 8% 55%;
     
-    --crypto-rose: 340 60% 45%;   /* Elegant rose for dark mode */
-    --crypto-rose-light: 340 50% 60%;
-    --crypto-rose-dark: 340 70% 30%;
+    --elegant-steel: 215 12% 60%;       /* Steel gray */
+    --elegant-steel-light: 215 18% 70%;
+    --elegant-steel-dark: 215 10% 45%;
     
-    /* Dark Bordeaux Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--crypto-bordeaux)), hsl(var(--crypto-wine)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--crypto-wine-light)), hsl(var(--background)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--crypto-wine-light)));
+    /* Elegant Silver Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--elegant-silver)), hsl(var(--elegant-platinum)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--elegant-platinum-light)), hsl(var(--background)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--elegant-silver-light)));
     
-    /* Dark Bordeaux Shadows */
+    /* Elegant Shadows */
     --shadow-soft: 0 2px 8px hsla(0, 0%, 0%, 0.2);
     --shadow-elegant: 0 8px 24px hsla(0, 0%, 0%, 0.3);
-    --shadow-glow: 0 0 20px hsl(var(--crypto-bordeaux) / 0.2);
+    --shadow-platinum: 0 0 20px hsl(var(--elegant-silver) / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

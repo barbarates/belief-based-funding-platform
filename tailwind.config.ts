@@ -62,36 +62,35 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Bordeaux Theme Colors
-				'crypto-bordeaux': {
-					DEFAULT: 'hsl(var(--crypto-bordeaux))',
-					light: 'hsl(var(--crypto-bordeaux-light))',
-					dark: 'hsl(var(--crypto-bordeaux-dark))'
+				// Elegant Silver Theme Colors
+				'elegant-silver': {
+					DEFAULT: 'hsl(var(--elegant-silver))',
+					light: 'hsl(var(--elegant-silver-light))',
+					dark: 'hsl(var(--elegant-silver-dark))'
 				},
-				'crypto-wine': {
-					DEFAULT: 'hsl(var(--crypto-wine))',
-					light: 'hsl(var(--crypto-wine-light))',
-					dark: 'hsl(var(--crypto-wine-dark))'
+				'elegant-platinum': {
+					DEFAULT: 'hsl(var(--elegant-platinum))',
+					light: 'hsl(var(--elegant-platinum-light))',
+					dark: 'hsl(var(--elegant-platinum-dark))'
 				},
-				'crypto-rose': {
-					DEFAULT: 'hsl(var(--crypto-rose))',
-					light: 'hsl(var(--crypto-rose-light))',
-					dark: 'hsl(var(--crypto-rose-dark))'
+				'elegant-steel': {
+					DEFAULT: 'hsl(var(--elegant-steel))',
+					light: 'hsl(var(--elegant-steel-light))',
+					dark: 'hsl(var(--elegant-steel-dark))'
 				}
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-warm': 'var(--gradient-warm)',
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-cosmic': 'var(--gradient-cosmic)',
-				'gradient-nebula': 'var(--gradient-nebula)',
-				'gradient-infinity': 'var(--gradient-infinity)'
+				'gradient-silver': 'var(--gradient-silver)',
+				'gradient-platinum': 'var(--gradient-platinum)',
+				'gradient-elegant': 'var(--gradient-elegant)'
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
 				'elegant': 'var(--shadow-elegant)',
-				'glow': 'var(--shadow-glow)',
-				'cosmic': 'var(--shadow-cosmic)'
+				'platinum': 'var(--shadow-platinum)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
