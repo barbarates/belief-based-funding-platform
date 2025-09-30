@@ -142,8 +142,8 @@ const Index = () => {
                 <a href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
                   {t('dashboard')}
                 </a>
-                <a href="/solana-test" className="bg-gradient-silver text-primary-foreground px-4 py-2 rounded-lg hover:shadow-platinum transition-all font-medium">
-                  🚀 Testar Solana
+                <a href="/solana-live" className="bg-gradient-silver text-primary-foreground px-4 py-2 rounded-lg hover:shadow-platinum transition-all font-medium">
+                  🚀 Versão Solana
                 </a>
               </div>
             </div>

@@ -11,6 +11,7 @@ import InvestmentDetail from "./pages/InvestmentDetail";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import SolanaTest from "./pages/SolanaTest";
+import SolanaLive from "./pages/SolanaLive";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/solana-test" element={<SolanaTest />} />
+          <Route path="/solana-live" element={<SolanaLive />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
