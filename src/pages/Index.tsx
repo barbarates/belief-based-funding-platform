@@ -20,15 +20,19 @@ import {
   Sparkles,
   ChevronRight,
   Globe,
-  Zap
+  Zap,
+  LogIn
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useSolanaWallet } from "@/hooks/useSolanaWallet";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useAuth } from "@/contexts/AuthContext";
 import atriafiLogo from "@/assets/atrafi-logo.png";
 import atriafiHeroBg from "@/assets/atrafi-hero-bg.png";
 import atriafiElements from "@/assets/atrafi-decorative-elements.png";
 
 const Index = () => {
+  const { user } = useAuth();
   const { wallet, connect } = useSolanaWallet();
   const isConnected = wallet.connected;
   const address = wallet.publicKey?.toString();
@@ -168,6 +172,20 @@ const Index = () => {
                 <Wallet className="h-4 w-4 mr-2" />
                 {isConnected ? `${address?.slice(0, 6)}...${address?.slice(-4)}` : t('connectWallet')}
               </Button>
+
+              {/* Auth Button */}
+              {user ? (
+                <Button asChild>
+                  <Link to="/dashboard">Dashboard</Link>
+                </Button>
+              ) : (
+                <Button variant="outline" asChild>
+                  <Link to="/auth">
+                    <LogIn className="mr-2 h-4 w-4" />
+                    Entrar
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>

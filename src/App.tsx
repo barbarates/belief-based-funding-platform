@@ -12,7 +12,9 @@ import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import SolanaTest from "./pages/SolanaTest";
 import SolanaLive from "./pages/SolanaLive";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -24,12 +26,41 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/investments" element={<Investments />} />
-          <Route path="/invest/:id" element={<InvestmentDetail />} />
-          <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/solana-test" element={<SolanaTest />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/solana-live" element={<SolanaLive />} />
+          <Route path="/solana-test" element={<SolanaTest />} />
+          <Route 
+            path="/investments" 
+            element={
+              <ProtectedRoute>
+                <Investments />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/invest/:id" 
+            element={
+              <ProtectedRoute>
+                <InvestmentDetail />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/profile/:id" 
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
